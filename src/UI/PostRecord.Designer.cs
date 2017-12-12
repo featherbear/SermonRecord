@@ -1,6 +1,6 @@
-﻿namespace Sermon_Record
+﻿namespace Sermon_Record.UI
 {
-    partial class Form1
+    partial class PostRecord
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // PostRecord
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(1149, 852);
+            this.Name = "PostRecord";
+            this.Text = "PostRecord";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

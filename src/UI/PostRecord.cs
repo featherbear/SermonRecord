@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sermon_Record
+namespace Sermon_Record.UI
 {
-    public partial class Form1 : Form
+    public partial class PostRecord : Form
     {
-        public Form1()
+        public PostRecord()
         {
             InitializeComponent();
         }
