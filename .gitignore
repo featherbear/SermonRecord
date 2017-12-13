@@ -1,0 +1,6 @@
+packages/
+Properties/
+[Oo]bj/
+[Bb]in/
+.vs/
+*.user
