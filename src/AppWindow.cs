@@ -1,8 +1,18 @@
-﻿using System;
+﻿/*
+ * Sermon Record
+ * Copyright 2017 Andrew Wong <featherbear@navhaxs.au.eu.org>
+ *
+ * The following code is licensed under the MIT License
+ */
+
+using NAudio.MediaFoundation;
+using NAudio.Wave;
+using Sermon_Record.UTIL;
+using System;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
-using CSCore;
-using CSCore.MediaFoundation;
+using Sermon_Record.UI;
 
 namespace Sermon_Record
 {
@@ -22,20 +32,15 @@ namespace Sermon_Record
         private void AppWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Recorder.IsRecording)
-                switch (MessageBox.Show("Save recording before exiting?", "Recording in progress!",
-                    MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button3))
+                switch (MessageBox.Show("Recording not saved. Discard?", "Recording in progress!",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
                 {
                     case DialogResult.Cancel:
                         e.Cancel = true;
                         return;
 
-                    case DialogResult.No:
+                    case DialogResult.OK:
                         Recorder.Cancel();
-                        break;
-
-                    case DialogResult.Yes:
-                        Recorder.Stop();
-                        //PostRecord
                         break;
                 }
             AudioDevice.Close();
@@ -45,7 +50,7 @@ namespace Sermon_Record
         {
             if (AppPreferences.RecordingDevice == "") SwitchView();
 
-            if (!MediaFoundationEncoder.GetEncoderMediaTypes(AudioSubTypes.MpegLayer3).Any())
+            if (!MediaFoundationEncoder.GetOutputMediaTypes(AudioSubtypes.MFAudioFormat_MP3).Any())
             {
                 MessageBox.Show("The current platform does not support mp3 encoding.\nApplication will close.");
                 Application.Exit();

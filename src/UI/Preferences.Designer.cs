@@ -40,6 +40,9 @@
             this.prefRecordingChannelsLbl = new System.Windows.Forms.Label();
             this.prefRecordingDepthLbl = new System.Windows.Forms.Label();
             this.prefRecordingRateLbl = new System.Windows.Forms.Label();
+            this.prefRecordingChannels = new System.Windows.Forms.ComboBox();
+            this.prefRecordingDepth = new System.Windows.Forms.ComboBox();
+            this.prefRecordingRate = new System.Windows.Forms.ComboBox();
             this.prefAlwaysOnTopLbl = new System.Windows.Forms.Label();
             this.prefRecordingLocationLbl = new System.Windows.Forms.Label();
             this.prefTempLocationDlg = new System.Windows.Forms.FolderBrowserDialog();
@@ -54,9 +57,6 @@
             this.prefAlwaysOnTop_FALSE = new System.Windows.Forms.RadioButton();
             this.prefAlwaysOnTop_TRUE = new System.Windows.Forms.RadioButton();
             this.RecordingAdvancedLbl = new System.Windows.Forms.Label();
-            this.prefRecordingRate = new System.Windows.Forms.TextBox();
-            this.prefRecordingDepth = new System.Windows.Forms.TextBox();
-            this.prefRecordingChannels = new System.Windows.Forms.TextBox();
             this.groupRecordingAdvanced.SuspendLayout();
             this.prefRecordingAdvanced.SuspendLayout();
             this.prefAlwaysOnTop.SuspendLayout();
@@ -70,8 +70,7 @@
             this.prefRecordingDevice.Name = "prefRecordingDevice";
             this.prefRecordingDevice.Size = new System.Drawing.Size(396, 33);
             this.prefRecordingDevice.TabIndex = 1;
-            this.prefRecordingDevice.SelectedIndexChanged += new System.EventHandler(this.prefRecordingDevice_SelectedIndexChanged);
-            this.prefRecordingDevice.SelectionChangeCommitted += new System.EventHandler(this.changeMade);
+            this.prefRecordingDevice.SelectedValueChanged += new System.EventHandler(this.changeMade);
             // 
             // btnSave
             // 
@@ -109,7 +108,7 @@
             // 
             // prefTempLocation
             // 
-            this.prefTempLocation.Location = new System.Drawing.Point(173, 262);
+            this.prefTempLocation.Location = new System.Drawing.Point(173, 261);
             this.prefTempLocation.Name = "prefTempLocation";
             this.prefTempLocation.Size = new System.Drawing.Size(362, 31);
             this.prefTempLocation.TabIndex = 12;
@@ -117,9 +116,6 @@
             // 
             // groupRecordingAdvanced
             // 
-            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingChannels);
-            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingDepth);
-            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingRate);
             this.groupRecordingAdvanced.Controls.Add(this.prefTempLocationErrorLbl);
             this.groupRecordingAdvanced.Controls.Add(this.prefTempLocationBtn);
             this.groupRecordingAdvanced.Controls.Add(this.prefTempLocationLbl);
@@ -127,6 +123,9 @@
             this.groupRecordingAdvanced.Controls.Add(this.prefRecordingChannelsLbl);
             this.groupRecordingAdvanced.Controls.Add(this.prefRecordingDepthLbl);
             this.groupRecordingAdvanced.Controls.Add(this.prefRecordingRateLbl);
+            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingChannels);
+            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingDepth);
+            this.groupRecordingAdvanced.Controls.Add(this.prefRecordingRate);
             this.groupRecordingAdvanced.Location = new System.Drawing.Point(701, 107);
             this.groupRecordingAdvanced.Name = "groupRecordingAdvanced";
             this.groupRecordingAdvanced.Size = new System.Drawing.Size(619, 368);
@@ -148,7 +147,7 @@
             // prefTempLocationBtn
             // 
             this.prefTempLocationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prefTempLocationBtn.Location = new System.Drawing.Point(538, 263);
+            this.prefTempLocationBtn.Location = new System.Drawing.Point(538, 261);
             this.prefTempLocationBtn.Margin = new System.Windows.Forms.Padding(0);
             this.prefTempLocationBtn.Name = "prefTempLocationBtn";
             this.prefTempLocationBtn.Size = new System.Drawing.Size(31, 31);
@@ -196,6 +195,46 @@
             this.prefRecordingRateLbl.TabIndex = 19;
             this.prefRecordingRateLbl.Text = "Sampling Rate";
             this.prefRecordingRateLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // prefRecordingChannels
+            // 
+            this.prefRecordingChannels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.prefRecordingChannels.FormattingEnabled = true;
+            this.prefRecordingChannels.Items.AddRange(new object[] {
+            "1",
+            "2"});
+            this.prefRecordingChannels.Location = new System.Drawing.Point(173, 189);
+            this.prefRecordingChannels.Name = "prefRecordingChannels";
+            this.prefRecordingChannels.Size = new System.Drawing.Size(127, 33);
+            this.prefRecordingChannels.TabIndex = 29;
+            this.prefRecordingChannels.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            // 
+            // prefRecordingDepth
+            // 
+            this.prefRecordingDepth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.prefRecordingDepth.FormattingEnabled = true;
+            this.prefRecordingDepth.Items.AddRange(new object[] {
+            "16",
+            "24",
+            "32"});
+            this.prefRecordingDepth.Location = new System.Drawing.Point(173, 117);
+            this.prefRecordingDepth.Name = "prefRecordingDepth";
+            this.prefRecordingDepth.Size = new System.Drawing.Size(127, 33);
+            this.prefRecordingDepth.TabIndex = 30;
+            this.prefRecordingDepth.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            // 
+            // prefRecordingRate
+            // 
+            this.prefRecordingRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.prefRecordingRate.FormattingEnabled = true;
+            this.prefRecordingRate.Items.AddRange(new object[] {
+            "44100",
+            "48000"});
+            this.prefRecordingRate.Location = new System.Drawing.Point(173, 47);
+            this.prefRecordingRate.Name = "prefRecordingRate";
+            this.prefRecordingRate.Size = new System.Drawing.Size(127, 33);
+            this.prefRecordingRate.TabIndex = 31;
+            this.prefRecordingRate.SelectedValueChanged += new System.EventHandler(this.changeMade);
             // 
             // prefAlwaysOnTopLbl
             // 
@@ -373,27 +412,6 @@
             this.RecordingAdvancedLbl.Text = "Advanced Settings";
             this.RecordingAdvancedLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // prefRecordingRate
-            // 
-            this.prefRecordingRate.Location = new System.Drawing.Point(173, 47);
-            this.prefRecordingRate.Name = "prefRecordingRate";
-            this.prefRecordingRate.Size = new System.Drawing.Size(127, 31);
-            this.prefRecordingRate.TabIndex = 27;
-            // 
-            // prefRecordingDepth
-            // 
-            this.prefRecordingDepth.Location = new System.Drawing.Point(173, 119);
-            this.prefRecordingDepth.Name = "prefRecordingDepth";
-            this.prefRecordingDepth.Size = new System.Drawing.Size(127, 31);
-            this.prefRecordingDepth.TabIndex = 28;
-            // 
-            // prefRecordingChannels
-            // 
-            this.prefRecordingChannels.Location = new System.Drawing.Point(173, 190);
-            this.prefRecordingChannels.Name = "prefRecordingChannels";
-            this.prefRecordingChannels.Size = new System.Drawing.Size(127, 31);
-            this.prefRecordingChannels.TabIndex = 29;
-            // 
             // Preferences
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -414,6 +432,7 @@
             this.Size = new System.Drawing.Size(1307, 555);
             this.Load += new System.EventHandler(this.Preferences_Load);
             this.Enter += new System.EventHandler(this.Preferences_Enter);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Preferences_KeyDown);
             this.groupRecordingAdvanced.ResumeLayout(false);
             this.groupRecordingAdvanced.PerformLayout();
             this.prefRecordingAdvanced.ResumeLayout(false);
@@ -452,8 +471,8 @@
         private System.Windows.Forms.RadioButton prefAlwaysOnTop_FALSE;
         private System.Windows.Forms.RadioButton prefAlwaysOnTop_TRUE;
         private System.Windows.Forms.Label RecordingAdvancedLbl;
-        private System.Windows.Forms.TextBox prefRecordingChannels;
-        private System.Windows.Forms.TextBox prefRecordingDepth;
-        private System.Windows.Forms.TextBox prefRecordingRate;
+        private System.Windows.Forms.ComboBox prefRecordingChannels;
+        private System.Windows.Forms.ComboBox prefRecordingDepth;
+        private System.Windows.Forms.ComboBox prefRecordingRate;
     }
 }

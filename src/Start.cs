@@ -1,6 +1,12 @@
-﻿using System;
+﻿/*
+ * Sermon Record
+ * Copyright 2017 Andrew Wong <featherbear@navhaxs.au.eu.org>
+ *
+ * The following code is licensed under the MIT License
+ */
+
+using System;
 using System.Windows.Forms;
-using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace Sermon_Record
 {

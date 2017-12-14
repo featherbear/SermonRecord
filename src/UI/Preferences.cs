@@ -1,13 +1,21 @@
-﻿using System;
-using System.Diagnostics;
+﻿/*
+ * Sermon Record
+ * Copyright 2017 Andrew Wong <featherbear@navhaxs.au.eu.org>
+ *
+ * The following code is licensed under the MIT License
+ */
+
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Security.Principal;
 using System.Windows.Forms;
-using CSCore.CoreAudioAPI;
-using CSCore.SoundIn;
+using NAudio.CoreAudioApi;
+using NAudio.Wave;
+using Sermon_Record.UTIL;
 
 namespace Sermon_Record.UI
 {
@@ -30,43 +38,16 @@ namespace Sermon_Record.UI
             }
         }
 
-        private void Preferences_Enter(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
-            /*
-             *  Update values of preference controls
-             */
-            prefRecordingDevice.Items.Clear();
-            var mmdevenum = MMDeviceEnumerator.EnumerateDevices(DataFlow.Capture, DeviceState.Active);
-            foreach (var device in WaveInDevice.EnumerateDevices())
-                prefRecordingDevice.Items.Add(mmdevenum.First(a => a.FriendlyName.StartsWith(device.Name))
-                    .FriendlyName);
-            if (AppPreferences.AlwaysOnTop) prefAlwaysOnTop_TRUE.Checked = true;
-            else prefAlwaysOnTop_FALSE.Checked = true;
-
-            prefRecordingLocation.Text = AppPreferences.RecordingLocation;
-            prefTempLocation.Text = AppPreferences.TempLocation;
-            prefRecordingDevice.Text = AppPreferences.RecordingDevice;
-            prefRecordingRate.Text = AppPreferences.RecordingRate.ToString();
-            prefRecordingDepth.Text = AppPreferences.RecordingDepth.ToString();
-            prefRecordingChannels.Text = AppPreferences.RecordingChannels.ToString();
-            btnSave.Enabled = false;
-        }
-
-        private void completeName()
-        {
-            // new CSCore.Streams.Effects.EqualizerFilter() new CSCore.Streams.PeakMeter() // .reset
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // completeName();
+            ((AppWindow) ParentForm).SwitchView();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!prefTempLocationError && !prefRecordingLocationError)
             {
-                AppPreferences.AlwaysOnTop = ((AppWindow)ParentForm).TopMost = (bool)prefAlwaysOnTop.Tag;
+                AppPreferences.AlwaysOnTop = ((AppWindow) ParentForm).TopMost = (bool) prefAlwaysOnTop.Tag;
 
                 AppPreferences.RecordingLocation = prefRecordingLocation.Text;
                 AppPreferences.TempLocation = prefTempLocation.Text;
@@ -81,11 +62,6 @@ namespace Sermon_Record.UI
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            ((AppWindow)ParentForm).SwitchView();
-        }
-
         private void changeMade(object sender, EventArgs e)
         {
             changeMade();
@@ -94,12 +70,6 @@ namespace Sermon_Record.UI
         private void changeMade()
         {
             btnSave.Enabled = true;
-        }
-
-        private void prefRecordingLocationBtn_Click(object sender, EventArgs e)
-        {
-            var newPath = DialogHelper(prefRecordingLocationDlg);
-            if (newPath != null) prefRecordingLocation.Text = newPath;
         }
 
         private string DialogHelper(FolderBrowserDialog dialog)
@@ -113,12 +83,6 @@ namespace Sermon_Record.UI
                 default:
                     return null;
             }
-        }
-
-        private void prefTempLocationBtn_Click(object sender, EventArgs e)
-        {
-            var newPath = DialogHelper(prefTempLocationDlg);
-            if (newPath != null) prefTempLocation.Text = newPath;
         }
 
         private bool LocationValidationHelper(string path)
@@ -147,15 +111,42 @@ namespace Sermon_Record.UI
             return Allow && !Deny;
         }
 
-        private void prefTempLocation_TextChanged(object sender, EventArgs e)
+        private void prefAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
         {
-            prefTempLocationError = prefTempLocationErrorLbl.Visible = !LocationValidationHelper(prefTempLocation.Text);
+            prefAlwaysOnTop.Tag = prefAlwaysOnTop_TRUE.Checked;
+            changeMade();
         }
 
-        private void prefRecordingLocation_TextChanged(object sender, EventArgs e)
+        private void Preferences_Enter(object sender, EventArgs e)
         {
-            prefRecordingLocationError = prefRecordingLocationErrorLbl.Visible =
-                !LocationValidationHelper(prefRecordingLocation.Text);
+            /*
+             *  Update values of preference controls
+             */
+            prefRecordingDevice.Items.Clear();
+            var devices = new List<string>();
+
+            new MMDeviceEnumerator().EnumerateAudioEndPoints(DataFlow.Capture, DeviceState.Active).ToList().ForEach(
+                d => { devices.Add(d.FriendlyName); });
+
+            for (var i = 0; i < WaveIn.DeviceCount; i++)
+                prefRecordingDevice.Items.Add(
+                    devices.First(dev => dev.StartsWith(WaveIn.GetCapabilities(i).ProductName)));
+
+            if (AppPreferences.AlwaysOnTop) prefAlwaysOnTop_TRUE.Checked = true;
+            else prefAlwaysOnTop_FALSE.Checked = true;
+
+            prefRecordingLocation.Text = AppPreferences.RecordingLocation;
+            prefTempLocation.Text = AppPreferences.TempLocation;
+            prefRecordingDevice.Text = AppPreferences.RecordingDevice;
+            prefRecordingRate.Text = AppPreferences.RecordingRate.ToString();
+            prefRecordingDepth.Text = AppPreferences.RecordingDepth.ToString();
+            prefRecordingChannels.Text = AppPreferences.RecordingChannels.ToString();
+            btnSave.Enabled = false;
+        }
+
+        private void Preferences_Load(object sender, EventArgs e)
+        {
+            prefRecordingAdvanced_FALSE.Checked = true;
         }
 
         private void prefRecordingAdvanced_CheckedChanged(object sender, EventArgs e)
@@ -163,19 +154,34 @@ namespace Sermon_Record.UI
             groupRecordingAdvanced.Enabled = prefRecordingAdvanced_TRUE.Checked;
         }
 
-        private void prefAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
+        private void Preferences_KeyDown(object sender, KeyEventArgs e)
         {
-            prefAlwaysOnTop.Tag = prefAlwaysOnTop_TRUE.Checked;
+            if (e.KeyCode == Keys.Escape) btnBack_Click(sender, e);
+        }
+
+        private void prefRecordingLocation_TextChanged(object sender, EventArgs e)
+        {
+            prefRecordingLocationError = prefRecordingLocationErrorLbl.Visible =
+                !LocationValidationHelper(prefRecordingLocation.Text);
             changeMade();
         }
 
-        private void prefRecordingDevice_SelectedIndexChanged(object sender, EventArgs e)
+        private void prefRecordingLocationBtn_Click(object sender, EventArgs e)
         {
+            var newPath = DialogHelper(prefRecordingLocationDlg);
+            if (newPath != null) prefRecordingLocation.Text = newPath;
         }
 
-        private void Preferences_Load(object sender, EventArgs e)
+        private void prefTempLocation_TextChanged(object sender, EventArgs e)
         {
-            prefRecordingAdvanced_FALSE.Checked = true;
+            prefTempLocationError = prefTempLocationErrorLbl.Visible = !LocationValidationHelper(prefTempLocation.Text);
+            changeMade();
+        }
+
+        private void prefTempLocationBtn_Click(object sender, EventArgs e)
+        {
+            var newPath = DialogHelper(prefTempLocationDlg);
+            if (newPath != null) prefTempLocation.Text = newPath;
         }
     }
 }

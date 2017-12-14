@@ -45,6 +45,12 @@
     <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.1.8.4\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Lame, Version=1.0.5.22475, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\NAudio.Lame.1.0.7\lib\net20\NAudio.Lame.dll</HintPath>
+    </Reference>
     <Reference Include="policy.2.0.taglib-sharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=db62eba44689b5b0, processorArchitecture=MSIL">
       <HintPath>packages\taglib.2.1.0.0\lib\policy.2.0.taglib-sharp.dll</HintPath>
     </Reference>
@@ -64,9 +70,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\PostRecord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PostRecord.Designer.cs">
+      <DependentUpon>PostRecord.cs</DependentUpon>
+    </Compile>
     <Compile Include="UTIL\AppPreferences.cs" />
     <Compile Include="UTIL\AudioDevice.cs" />
-    <Compile Include="UTIL\Converter.cs" />
     <Compile Include="UTIL\Recorder.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,12 +86,6 @@
     </Compile>
     <Compile Include="UI\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\PostRecord.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\PostRecord.Designer.cs">
-      <DependentUpon>PostRecord.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Preferences.cs">
       <SubType>UserControl</SubType>
@@ -94,14 +99,9 @@
     <Compile Include="AppWindow.Designer.cs">
       <DependentUpon>AppWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="UTIL\Visualisation\BasicSpectrumProvider.cs" />
-    <Compile Include="UTIL\Visualisation\GradientCalculator.cs" />
-    <Compile Include="UTIL\Visualisation\ISpectrumProvider.cs" />
-    <Compile Include="UTIL\Visualisation\LineSpectrum.cs" />
-    <Compile Include="UTIL\Visualisation\ScalingStrategy.cs" />
-    <Compile Include="UTIL\Visualisation\SpectrumBase.cs" />
-    <Compile Include="UTIL\Visualisation\Visualisation.cs" />
-    <Compile Include="UTIL\Visualisation\VoicePrint3DSpectrum.cs" />
+    <Compile Include="UTIL\UI Extensions.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -139,10 +139,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\cscore\CSCore\CSCore.csproj">
-      <Project>{c3dccfe3-dd3f-4eee-849b-33e355b1e064}</Project>
-      <Name>CSCore</Name>
+    <ProjectReference Include="..\lib\NAudio.WaveFormRenderer\NAudio.WaveFormRenderer.csproj">
+      <Project>{3efef2d1-5d08-46fd-af6d-098dbe7fb3b4}</Project>
+      <Name>NAudio.WaveFormRenderer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libmp3lame.32.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="libmp3lame.64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
