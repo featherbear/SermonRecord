@@ -1,24 +1,35 @@
-﻿using System;
-using System.IO;
-using Microsoft.Win32;
+﻿/*
+ * Sermon Record
+ * Copyright 2017 Andrew Wong <featherbear@navhaxs.au.eu.org>
+ *
+ * The following code is licensed under the MIT License
+ */
 
-namespace Sermon_Record
+using Microsoft.Win32;
+using System;
+using System.IO;
+
+namespace Sermon_Record.UTIL
 {
     internal static class AppPreferences
 
     {
-        private static readonly RegistryKey Registry =
-            Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\featherbear\\Sermon Record");
+        private static readonly RegistryKey _reg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\featherbear\\Sermon Record");
 
-        public static bool AlwaysOnTop = Convert.ToBoolean(Registry.GetValue("AlwaysOnTop", false));
-        public static string TempLocation = Convert.ToString(Registry.GetValue("TempLocation", Path.GetTempPath()));
-        public static int RecordingRate = Convert.ToInt32(Registry.GetValue("RecordingRate", 44800));
-        public static int RecordingDepth = Convert.ToInt32(Registry.GetValue("RecordingDepth", 32));
-        public static int RecordingChannels = Convert.ToInt32(Registry.GetValue("RecordingChannels", 1));
-        public static string RecordingDevice = Convert.ToString(Registry.GetValue("RecordingDevice", ""));
+        public static bool AlwaysOnTop = Convert.ToBoolean(_reg.GetValue("AlwaysOnTop", false));
 
-        public static string RecordingLocation = Convert.ToString(Registry.GetValue("RecordingLocation",
+        public static int RecordingChannels = Convert.ToInt32(_reg.GetValue("RecordingChannels", 1));
+
+        public static int RecordingDepth = Convert.ToInt32(_reg.GetValue("RecordingDepth", 32));
+
+        public static string RecordingDevice = Convert.ToString(_reg.GetValue("RecordingDevice", ""));
+
+        public static string RecordingLocation = Convert.ToString(_reg.GetValue("RecordingLocation",
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)));
+
+        public static int RecordingRate = Convert.ToInt32(_reg.GetValue("RecordingRate", 48000));
+
+        public static string TempLocation = Convert.ToString(_reg.GetValue("TempLocation", Path.GetTempPath()));
 
         /*
          * Don't need a loading function if the Registry is only read once (when application starts)
@@ -31,13 +42,13 @@ namespace Sermon_Record
         {
             try
             {
-                Registry.SetValue("AlwaysOnTop", AlwaysOnTop);
-                Registry.SetValue("TempLocation", TempLocation);
-                Registry.SetValue("RecordingRate", RecordingRate);
-                Registry.SetValue("RecordingDepth", RecordingDepth);
-                Registry.SetValue("RecordingChannels", RecordingChannels);
-                Registry.SetValue("RecordingDevice", RecordingDevice);
-                Registry.SetValue("RecordingLocation", RecordingLocation);
+                _reg.SetValue("AlwaysOnTop", AlwaysOnTop);
+                _reg.SetValue("TempLocation", TempLocation);
+                _reg.SetValue("RecordingRate", RecordingRate);
+                _reg.SetValue("RecordingDepth", RecordingDepth);
+                _reg.SetValue("RecordingChannels", RecordingChannels);
+                _reg.SetValue("RecordingDevice", RecordingDevice);
+                _reg.SetValue("RecordingLocation", RecordingLocation);
 
                 return true;
             }
