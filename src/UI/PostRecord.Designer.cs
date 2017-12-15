@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imgWaveform = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDiscard = new System.Windows.Forms.Button();
             this.lblWaveform = new System.Windows.Forms.Label();
@@ -45,26 +44,13 @@
             this.saveLocation = new System.Windows.Forms.TextBox();
             this.saveLocationBtn = new System.Windows.Forms.Button();
             this.lblSaveLocation = new System.Windows.Forms.Label();
-            this.lblOriginalDuration = new System.Windows.Forms.Label();
-            this.originalDuration = new System.Windows.Forms.Label();
-            this.finalDuration = new System.Windows.Forms.Label();
-            this.lblFinalDuration = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.imgWaveform)).BeginInit();
+            this.waveform = new Sermon_Record.UTIL.WaveformSelector();
             this.SuspendLayout();
-            // 
-            // imgWaveform
-            // 
-            this.imgWaveform.Location = new System.Drawing.Point(9, 334);
-            this.imgWaveform.Margin = new System.Windows.Forms.Padding(0);
-            this.imgWaveform.Name = "imgWaveform";
-            this.imgWaveform.Size = new System.Drawing.Size(1356, 251);
-            this.imgWaveform.TabIndex = 0;
-            this.imgWaveform.TabStop = false;
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1165, 655);
+            this.btnSave.Location = new System.Drawing.Point(1165, 700);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(200, 100);
@@ -89,11 +75,11 @@
             // 
             this.lblWaveform.AutoSize = true;
             this.lblWaveform.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
-            this.lblWaveform.Location = new System.Drawing.Point(4, 286);
+            this.lblWaveform.Location = new System.Drawing.Point(4, 259);
             this.lblWaveform.Name = "lblWaveform";
-            this.lblWaveform.Size = new System.Drawing.Size(218, 31);
+            this.lblWaveform.Size = new System.Drawing.Size(213, 31);
             this.lblWaveform.TabIndex = 27;
-            this.lblWaveform.Text = "Crop Recording";
+            this.lblWaveform.Text = "Trim Recording";
             // 
             // lblSermonDetails
             // 
@@ -184,20 +170,20 @@
             // 
             // saveLocation
             // 
-            this.saveLocation.Location = new System.Drawing.Point(12, 661);
+            this.saveLocation.Location = new System.Drawing.Point(12, 700);
             this.saveLocation.Name = "saveLocation";
             this.saveLocation.ReadOnly = true;
-            this.saveLocation.Size = new System.Drawing.Size(1353, 31);
+            this.saveLocation.Size = new System.Drawing.Size(1141, 31);
             this.saveLocation.TabIndex = 5;
             this.saveLocation.TabStop = false;
             // 
             // saveLocationBtn
             // 
             this.saveLocationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
-            this.saveLocationBtn.Location = new System.Drawing.Point(10, 700);
+            this.saveLocationBtn.Location = new System.Drawing.Point(12, 747);
             this.saveLocationBtn.Margin = new System.Windows.Forms.Padding(0);
             this.saveLocationBtn.Name = "saveLocationBtn";
-            this.saveLocationBtn.Size = new System.Drawing.Size(111, 45);
+            this.saveLocationBtn.Size = new System.Drawing.Size(111, 53);
             this.saveLocationBtn.TabIndex = 6;
             this.saveLocationBtn.Text = "Change";
             this.saveLocationBtn.UseVisualStyleBackColor = true;
@@ -207,53 +193,18 @@
             // 
             this.lblSaveLocation.AutoSize = true;
             this.lblSaveLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
-            this.lblSaveLocation.Location = new System.Drawing.Point(4, 617);
+            this.lblSaveLocation.Location = new System.Drawing.Point(4, 657);
             this.lblSaveLocation.Name = "lblSaveLocation";
             this.lblSaveLocation.Size = new System.Drawing.Size(199, 31);
             this.lblSaveLocation.TabIndex = 46;
             this.lblSaveLocation.Text = "Save Location";
             // 
-            // lblOriginalDuration
+            // waveform
             // 
-            this.lblOriginalDuration.AutoSize = true;
-            this.lblOriginalDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOriginalDuration.Location = new System.Drawing.Point(703, 210);
-            this.lblOriginalDuration.Name = "lblOriginalDuration";
-            this.lblOriginalDuration.Size = new System.Drawing.Size(206, 29);
-            this.lblOriginalDuration.TabIndex = 47;
-            this.lblOriginalDuration.Text = "Original Duration: ";
-            this.lblOriginalDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // originalDuration
-            // 
-            this.originalDuration.AutoSize = true;
-            this.originalDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.originalDuration.Location = new System.Drawing.Point(909, 210);
-            this.originalDuration.Name = "originalDuration";
-            this.originalDuration.Size = new System.Drawing.Size(0, 29);
-            this.originalDuration.TabIndex = 49;
-            this.originalDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // finalDuration
-            // 
-            this.finalDuration.AutoSize = true;
-            this.finalDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.finalDuration.Location = new System.Drawing.Point(909, 249);
-            this.finalDuration.Name = "finalDuration";
-            this.finalDuration.Size = new System.Drawing.Size(0, 29);
-            this.finalDuration.TabIndex = 51;
-            this.finalDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblFinalDuration
-            // 
-            this.lblFinalDuration.AutoSize = true;
-            this.lblFinalDuration.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFinalDuration.Location = new System.Drawing.Point(735, 249);
-            this.lblFinalDuration.Name = "lblFinalDuration";
-            this.lblFinalDuration.Size = new System.Drawing.Size(174, 29);
-            this.lblFinalDuration.TabIndex = 50;
-            this.lblFinalDuration.Text = "Final Duration: ";
-            this.lblFinalDuration.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.waveform.Location = new System.Drawing.Point(9, 304);
+            this.waveform.Name = "waveform";
+            this.waveform.Size = new System.Drawing.Size(1356, 338);
+            this.waveform.TabIndex = 52;
             // 
             // PostRecord
             // 
@@ -261,10 +212,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 809);
             this.ControlBox = false;
-            this.Controls.Add(this.finalDuration);
-            this.Controls.Add(this.lblFinalDuration);
-            this.Controls.Add(this.originalDuration);
-            this.Controls.Add(this.lblOriginalDuration);
+            this.Controls.Add(this.waveform);
             this.Controls.Add(this.lblSaveLocation);
             this.Controls.Add(this.saveLocationBtn);
             this.Controls.Add(this.saveLocation);
@@ -280,7 +228,6 @@
             this.Controls.Add(this.lblWaveform);
             this.Controls.Add(this.btnDiscard);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.imgWaveform);
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1400, 880);
@@ -292,15 +239,12 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PostRecord_FormClosed);
             this.Load += new System.EventHandler(this.PostRecord_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PostRecord_KeyDown);
-            ((System.ComponentModel.ISupportInitialize)(this.imgWaveform)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox imgWaveform;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDiscard;
         private System.Windows.Forms.Label lblWaveform;
@@ -317,9 +261,6 @@
         private System.Windows.Forms.TextBox saveLocation;
         private System.Windows.Forms.Button saveLocationBtn;
         private System.Windows.Forms.Label lblSaveLocation;
-        private System.Windows.Forms.Label lblOriginalDuration;
-        private System.Windows.Forms.Label originalDuration;
-        private System.Windows.Forms.Label finalDuration;
-        private System.Windows.Forms.Label lblFinalDuration;
+        private UTIL.WaveformSelector waveform;
     }
 }

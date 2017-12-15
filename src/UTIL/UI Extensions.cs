@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -8,6 +9,10 @@ using System.Windows.Forms;
 
 namespace Sermon_Record.UTIL
 {
+
+
+
+
 
     public class VerticalProgressBar : ProgressBar
     {

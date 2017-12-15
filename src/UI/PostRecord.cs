@@ -24,29 +24,8 @@ namespace Sermon_Record.UI
         public PostRecord()
         {
             InitializeComponent();
-            originalDuration.Text = Recorder.GetElapsedTimeFormatted();
+            waveform.Load(Recorder.filePath);
             UpdatePath();
-
-            var averagePeakProvider = new AveragePeakProvider(4);
-            var topSpacerColor = Color.FromArgb(64, 83, 22, 3);
-            var soundCloudOrangeTransparentBlocks = new SoundCloudBlockWaveFormSettings(Color.FromArgb(196, 197, 53, 0),
-                topSpacerColor, Color.FromArgb(196, 79, 26, 0),
-                Color.FromArgb(64, 79, 79, 79))
-            {
-                //Name = "SoundCloud Orange Transparent Blocks",
-                //                BackgroundImage =
-
-                PixelsPerPeak = 2,
-                Width = imgWaveform.Width,
-                BottomHeight = Convert.ToInt32(0.2 * imgWaveform.Height),
-                SpacerPixels = 1,
-                TopHeight = Convert.ToInt32(0.7 * imgWaveform.Height),
-                TopSpacerGradientStartColor = topSpacerColor,
-                BackgroundColor = Color.Transparent
-            };
-            var renderer = new WaveFormRenderer();
-            var image = renderer.Render(Recorder.filePath, averagePeakProvider, soundCloudOrangeTransparentBlocks);
-            imgWaveform.Image = image;
 
             ShowDialog();
         }

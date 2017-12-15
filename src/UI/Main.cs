@@ -47,6 +47,7 @@ namespace Sermon_Record.UI
                 fileSizeTimer.Start();
                 elapsedTimeTimer.Start();
                 fileSizeTimer.Start();
+                fileSizeTimer_Tick(null,null);
                 btnPreferences.Enabled = false;
 
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
@@ -93,9 +94,7 @@ namespace Sermon_Record.UI
         {
             if (AudioDevice.IsOpen)
             {
-                var val = Math.Max(0,
-                    Math.Min(soundMeterG.Maximum, soundMeterG.Maximum + (int) AudioDevice.peakValueDb));
-                //soundMeterG.Value = val;
+                var val = Math.Max(0, Math.Min(soundMeterG.Maximum, soundMeterG.Maximum + (int) AudioDevice.peakValueDb));
                 soundMeterG.SetProgressNoAnimation(val);
                 if (val > 60) soundMeterG.SetState(2);
                 else if (val > 50) soundMeterG.SetState(3);

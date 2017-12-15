@@ -38,13 +38,13 @@ namespace Sermon_Record.UI
             this.btnPreferences = new System.Windows.Forms.Button();
             this.elapsedTimeLbl = new System.Windows.Forms.Label();
             this.elapsedTimeTimer = new System.Windows.Forms.Timer(this.components);
-            this.soundMeterG = new Sermon_Record.UTIL.VerticalProgressBar();
             this.soundMeterGTimer = new System.Windows.Forms.Timer(this.components);
             this.soundMeterTTimer = new System.Windows.Forms.Timer(this.components);
             this.soundMeterT = new System.Windows.Forms.Label();
             this.lblFileSize = new System.Windows.Forms.Label();
             this.fileSize = new System.Windows.Forms.Label();
             this.fileSizeTimer = new System.Windows.Forms.Timer(this.components);
+            this.soundMeterG = new Sermon_Record.UTIL.VerticalProgressBar();
             this.SuspendLayout();
             // 
             // btnRecord
@@ -95,21 +95,8 @@ namespace Sermon_Record.UI
             // 
             // elapsedTimeTimer
             // 
-            this.elapsedTimeTimer.Interval = 800;
+            this.elapsedTimeTimer.Interval = 700;
             this.elapsedTimeTimer.Tick += new System.EventHandler(this.elapsedTimeTimer_Tick);
-            // 
-            // soundMeterG
-            // 
-            this.soundMeterG.Location = new System.Drawing.Point(8, 267);
-            this.soundMeterG.Margin = new System.Windows.Forms.Padding(0);
-            this.soundMeterG.MarqueeAnimationSpeed = 0;
-            this.soundMeterG.Maximum = 66;
-            this.soundMeterG.Name = "soundMeterG";
-            this.soundMeterG.Size = new System.Drawing.Size(40, 224);
-            this.soundMeterG.Step = 0;
-            this.soundMeterG.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.soundMeterG.TabIndex = 5;
-            this.soundMeterG.Click += new System.EventHandler(this.soundMeterG_Click);
             // 
             // soundMeterGTimer
             // 
@@ -158,17 +145,30 @@ namespace Sermon_Record.UI
             this.fileSizeTimer.Interval = 1500;
             this.fileSizeTimer.Tick += new System.EventHandler(this.fileSizeTimer_Tick);
             // 
+            // soundMeterG
+            // 
+            this.soundMeterG.Location = new System.Drawing.Point(8, 267);
+            this.soundMeterG.Margin = new System.Windows.Forms.Padding(0);
+            this.soundMeterG.MarqueeAnimationSpeed = 0;
+            this.soundMeterG.Maximum = 66;
+            this.soundMeterG.Name = "soundMeterG";
+            this.soundMeterG.Size = new System.Drawing.Size(40, 224);
+            this.soundMeterG.Step = 0;
+            this.soundMeterG.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.soundMeterG.TabIndex = 5;
+            this.soundMeterG.Click += new System.EventHandler(this.soundMeterG_Click);
+            // 
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.fileSize);
-            this.Controls.Add(this.lblFileSize);
             this.Controls.Add(this.soundMeterT);
             this.Controls.Add(this.soundMeterG);
             this.Controls.Add(this.elapsedTimeLbl);
             this.Controls.Add(this.btnPreferences);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRecord);
+            this.Controls.Add(this.lblFileSize);
             this.Name = "Main";
             this.Size = new System.Drawing.Size(1307, 555);
             this.Load += new System.EventHandler(this.Main_Load);
