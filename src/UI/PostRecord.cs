@@ -6,6 +6,7 @@
  */
 
 using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -99,8 +100,8 @@ namespace Sermon_Record.UI
             TaskbarManager.Instance.SetProgressValue(0, 1);
 
             using (var inputWave = new WaveFileReader(Recorder.filePath))
-            using (var compressor = new SimpleCompressorStream(inputWave) {Attack = (float) 0.5})
-            using (var writer = new LameMP3FileWriter(saveLocation.Text, inputWave.WaveFormat, LAMEPreset.STANDARD,
+            using (var compressor = new SimpleCompressorStream(inputWave) {Attack = (float) 1.5, Enabled = true, Threshold = 10 ,Ratio = 4,MakeUpGain = -3})
+            using (var writer = new LameMP3FileWriter(saveLocation.Text+".compressed.mp3", inputWave.WaveFormat, LAMEPreset.STANDARD,
                 tag))
             {
                 writer.MinProgressTime = 0;
@@ -109,10 +110,38 @@ namespace Sermon_Record.UI
                     if (f) Close();
                     else updateProgressBar(i, inputWave.Length);
                 };
-                compressor.CopyTo(writer);
+
+
+                Debug.Print(waveform.timeStart.TotalMilliseconds.ToString());
+
+                Debug.Print(waveform.timeEnd.TotalMilliseconds.ToString());
+                int bytesPerMillisecond = inputWave.WaveFormat.AverageBytesPerSecond / 1000;
+
+                int startPos = (int)waveform.timeStart.TotalMilliseconds * bytesPerMillisecond;
+
+                int endBytes = (int)waveform.timeEnd.TotalMilliseconds * bytesPerMillisecond;
+                endBytes = endBytes - endBytes % inputWave.WaveFormat.BlockAlign;
+                int endPos = (int)inputWave.Length - endBytes;
+
+
+                inputWave.Position = startPos - startPos % inputWave.WaveFormat.BlockAlign; 
+                byte[] buffer = new byte[1024];
+                while (inputWave.Position < endPos)
+                {
+                    int bytesRequired = (int)(endPos - inputWave.Position);
+                    if (bytesRequired > 0)
+                    {
+                        int bytesToRead = Math.Min(bytesRequired, buffer.Length);
+                        int bytesRead = compressor.Read(buffer, 0, bytesToRead);
+                        if (bytesRead > 0)
+                        {
+                            writer.Write(buffer, 0, bytesRead);
+                        }
+                    }
+                }
             }
             using (var inputWave = new WaveFileReader(Recorder.filePath))
-            using (var writer = new LameMP3FileWriter(saveLocation.Text + ".compressor.mp3", inputWave.WaveFormat,
+            using (var writer = new LameMP3FileWriter(saveLocation.Text + ".clean.mp3", inputWave.WaveFormat,
                 LAMEPreset.STANDARD, tag))
             {
                 inputWave.CopyTo(writer);
@@ -128,5 +157,9 @@ namespace Sermon_Record.UI
         {
             TaskbarManager.Instance.SetProgressValue(0, 1);
         }
+
+
+
+
     }
 }

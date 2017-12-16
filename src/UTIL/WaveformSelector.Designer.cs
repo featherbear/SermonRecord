@@ -82,7 +82,7 @@
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(1096, 269);
+            this.lblStartTime.Location = new System.Drawing.Point(1040, 269);
             this.lblStartTime.Name = "lblStartTime";
             this.lblStartTime.Size = new System.Drawing.Size(110, 25);
             this.lblStartTime.TabIndex = 6;
@@ -92,7 +92,7 @@
             // lblEndTime
             // 
             this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(1239, 269);
+            this.lblEndTime.Location = new System.Drawing.Point(1217, 269);
             this.lblEndTime.Name = "lblEndTime";
             this.lblEndTime.Size = new System.Drawing.Size(103, 25);
             this.lblEndTime.TabIndex = 7;
@@ -101,23 +101,24 @@
             // 
             // startTime
             // 
-            this.startTime.Location = new System.Drawing.Point(1101, 307);
+            this.startTime.Location = new System.Drawing.Point(1021, 307);
             this.startTime.Name = "startTime";
             this.startTime.ReadOnly = true;
-            this.startTime.Size = new System.Drawing.Size(100, 31);
+            this.startTime.Size = new System.Drawing.Size(149, 31);
             this.startTime.TabIndex = 8;
             this.startTime.TabStop = false;
-            this.startTime.Text = "00:00:00";
+            this.startTime.Text = "00:00:00.000";
             this.startTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // endTime
             // 
-            this.endTime.Location = new System.Drawing.Point(1240, 307);
+            this.endTime.Location = new System.Drawing.Point(1194, 307);
             this.endTime.Name = "endTime";
             this.endTime.ReadOnly = true;
-            this.endTime.Size = new System.Drawing.Size(100, 31);
+            this.endTime.Size = new System.Drawing.Size(149, 31);
             this.endTime.TabIndex = 9;
             this.endTime.TabStop = false;
+            this.endTime.Text = "00:00:00.000";
             this.endTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // originalDuration
@@ -125,10 +126,10 @@
             this.originalDuration.Location = new System.Drawing.Point(189, 266);
             this.originalDuration.Name = "originalDuration";
             this.originalDuration.ReadOnly = true;
-            this.originalDuration.Size = new System.Drawing.Size(100, 31);
+            this.originalDuration.Size = new System.Drawing.Size(145, 31);
             this.originalDuration.TabIndex = 11;
             this.originalDuration.TabStop = false;
-            this.originalDuration.Text = "00:00:00";
+            this.originalDuration.Text = "00:00:00.000";
             this.originalDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblOriginalDuration
@@ -146,10 +147,10 @@
             this.newDuration.Location = new System.Drawing.Point(189, 307);
             this.newDuration.Name = "newDuration";
             this.newDuration.ReadOnly = true;
-            this.newDuration.Size = new System.Drawing.Size(100, 31);
+            this.newDuration.Size = new System.Drawing.Size(145, 31);
             this.newDuration.TabIndex = 13;
             this.newDuration.TabStop = false;
-            this.newDuration.Text = "00:00:00";
+            this.newDuration.Text = "00:00:00.000";
             this.newDuration.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblNewDuration
