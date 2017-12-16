@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppWindow));
             this.viewSelector = new System.Windows.Forms.TabControl();
             this.tabMain = new System.Windows.Forms.TabPage();
             this.main = new Sermon_Record.UI.Main();
@@ -80,7 +81,7 @@
             this.tabPreferences.Location = new System.Drawing.Point(4, 5);
             this.tabPreferences.Margin = new System.Windows.Forms.Padding(0);
             this.tabPreferences.Name = "tabPreferences";
-            this.tabPreferences.Size = new System.Drawing.Size(1314, 539);
+            this.tabPreferences.Size = new System.Drawing.Size(1314, 538);
             this.tabPreferences.TabIndex = 1;
             this.tabPreferences.Text = "tabPreferences";
             this.tabPreferences.UseVisualStyleBackColor = true;
@@ -90,7 +91,7 @@
             this.preferences.Dock = System.Windows.Forms.DockStyle.Fill;
             this.preferences.Location = new System.Drawing.Point(0, 0);
             this.preferences.Name = "preferences";
-            this.preferences.Size = new System.Drawing.Size(1314, 539);
+            this.preferences.Size = new System.Drawing.Size(1314, 538);
             this.preferences.TabIndex = 0;
             // 
             // AppWindow
@@ -99,6 +100,7 @@
             this.ClientSize = new System.Drawing.Size(1322, 547);
             this.ControlBox = false;
             this.Controls.Add(this.viewSelector);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AppWindow";
             this.Text = "Sermon Record";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AppWindow_FormClosing);
