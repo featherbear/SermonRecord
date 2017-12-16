@@ -43,7 +43,6 @@
             this.prefRecordingChannels = new System.Windows.Forms.ComboBox();
             this.prefRecordingDepth = new System.Windows.Forms.ComboBox();
             this.prefRecordingRate = new System.Windows.Forms.ComboBox();
-            this.prefAlwaysOnTopLbl = new System.Windows.Forms.Label();
             this.prefRecordingLocationLbl = new System.Windows.Forms.Label();
             this.prefTempLocationDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.prefRecordingLocationDlg = new System.Windows.Forms.FolderBrowserDialog();
@@ -53,13 +52,9 @@
             this.prefRecordingAdvanced = new System.Windows.Forms.TableLayoutPanel();
             this.prefRecordingAdvanced_FALSE = new System.Windows.Forms.RadioButton();
             this.prefRecordingAdvanced_TRUE = new System.Windows.Forms.RadioButton();
-            this.prefAlwaysOnTop = new System.Windows.Forms.TableLayoutPanel();
-            this.prefAlwaysOnTop_FALSE = new System.Windows.Forms.RadioButton();
-            this.prefAlwaysOnTop_TRUE = new System.Windows.Forms.RadioButton();
             this.RecordingAdvancedLbl = new System.Windows.Forms.Label();
             this.groupRecordingAdvanced.SuspendLayout();
             this.prefRecordingAdvanced.SuspendLayout();
-            this.prefAlwaysOnTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // prefRecordingDevice
@@ -236,16 +231,6 @@
             this.prefRecordingRate.TabIndex = 31;
             this.prefRecordingRate.SelectedValueChanged += new System.EventHandler(this.changeMade);
             // 
-            // prefAlwaysOnTopLbl
-            // 
-            this.prefAlwaysOnTopLbl.AutoSize = true;
-            this.prefAlwaysOnTopLbl.Location = new System.Drawing.Point(86, 301);
-            this.prefAlwaysOnTopLbl.Name = "prefAlwaysOnTopLbl";
-            this.prefAlwaysOnTopLbl.Size = new System.Drawing.Size(157, 25);
-            this.prefAlwaysOnTopLbl.TabIndex = 18;
-            this.prefAlwaysOnTopLbl.Text = "Always On Top";
-            this.prefAlwaysOnTopLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // prefRecordingLocationLbl
             // 
             this.prefRecordingLocationLbl.AutoSize = true;
@@ -302,7 +287,7 @@
             this.prefRecordingAdvanced.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.prefRecordingAdvanced.Controls.Add(this.prefRecordingAdvanced_FALSE, 0, 0);
             this.prefRecordingAdvanced.Controls.Add(this.prefRecordingAdvanced_TRUE, 1, 0);
-            this.prefRecordingAdvanced.Location = new System.Drawing.Point(246, 366);
+            this.prefRecordingAdvanced.Location = new System.Drawing.Point(1064, 63);
             this.prefRecordingAdvanced.Margin = new System.Windows.Forms.Padding(0);
             this.prefRecordingAdvanced.Name = "prefRecordingAdvanced";
             this.prefRecordingAdvanced.RowCount = 1;
@@ -350,79 +335,25 @@
             this.prefRecordingAdvanced_TRUE.UseVisualStyleBackColor = true;
             this.prefRecordingAdvanced_TRUE.CheckedChanged += new System.EventHandler(this.prefRecordingAdvanced_CheckedChanged);
             // 
-            // prefAlwaysOnTop
-            // 
-            this.prefAlwaysOnTop.ColumnCount = 2;
-            this.prefAlwaysOnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.prefAlwaysOnTop.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.prefAlwaysOnTop.Controls.Add(this.prefAlwaysOnTop_FALSE, 0, 0);
-            this.prefAlwaysOnTop.Controls.Add(this.prefAlwaysOnTop_TRUE, 1, 0);
-            this.prefAlwaysOnTop.Location = new System.Drawing.Point(246, 294);
-            this.prefAlwaysOnTop.Margin = new System.Windows.Forms.Padding(0);
-            this.prefAlwaysOnTop.Name = "prefAlwaysOnTop";
-            this.prefAlwaysOnTop.RowCount = 1;
-            this.prefAlwaysOnTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.prefAlwaysOnTop.Size = new System.Drawing.Size(206, 41);
-            this.prefAlwaysOnTop.TabIndex = 27;
-            // 
-            // prefAlwaysOnTop_FALSE
-            // 
-            this.prefAlwaysOnTop_FALSE.Appearance = System.Windows.Forms.Appearance.Button;
-            this.prefAlwaysOnTop_FALSE.AutoSize = true;
-            this.prefAlwaysOnTop_FALSE.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.prefAlwaysOnTop_FALSE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prefAlwaysOnTop_FALSE.FlatAppearance.BorderSize = 0;
-            this.prefAlwaysOnTop_FALSE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prefAlwaysOnTop_FALSE.Location = new System.Drawing.Point(0, 0);
-            this.prefAlwaysOnTop_FALSE.Margin = new System.Windows.Forms.Padding(0);
-            this.prefAlwaysOnTop_FALSE.Name = "prefAlwaysOnTop_FALSE";
-            this.prefAlwaysOnTop_FALSE.Size = new System.Drawing.Size(103, 41);
-            this.prefAlwaysOnTop_FALSE.TabIndex = 28;
-            this.prefAlwaysOnTop_FALSE.TabStop = true;
-            this.prefAlwaysOnTop_FALSE.Text = "OFF";
-            this.prefAlwaysOnTop_FALSE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.prefAlwaysOnTop_FALSE.UseVisualStyleBackColor = true;
-            this.prefAlwaysOnTop_FALSE.CheckedChanged += new System.EventHandler(this.prefAlwaysOnTop_CheckedChanged);
-            // 
-            // prefAlwaysOnTop_TRUE
-            // 
-            this.prefAlwaysOnTop_TRUE.Appearance = System.Windows.Forms.Appearance.Button;
-            this.prefAlwaysOnTop_TRUE.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.prefAlwaysOnTop_TRUE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.prefAlwaysOnTop_TRUE.FlatAppearance.BorderSize = 0;
-            this.prefAlwaysOnTop_TRUE.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.prefAlwaysOnTop_TRUE.Location = new System.Drawing.Point(103, 0);
-            this.prefAlwaysOnTop_TRUE.Margin = new System.Windows.Forms.Padding(0);
-            this.prefAlwaysOnTop_TRUE.Name = "prefAlwaysOnTop_TRUE";
-            this.prefAlwaysOnTop_TRUE.Size = new System.Drawing.Size(103, 41);
-            this.prefAlwaysOnTop_TRUE.TabIndex = 27;
-            this.prefAlwaysOnTop_TRUE.TabStop = true;
-            this.prefAlwaysOnTop_TRUE.Text = "ON";
-            this.prefAlwaysOnTop_TRUE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.prefAlwaysOnTop_TRUE.UseVisualStyleBackColor = true;
-            this.prefAlwaysOnTop_TRUE.CheckedChanged += new System.EventHandler(this.prefAlwaysOnTop_CheckedChanged);
-            // 
             // RecordingAdvancedLbl
             // 
             this.RecordingAdvancedLbl.AutoSize = true;
-            this.RecordingAdvancedLbl.Location = new System.Drawing.Point(51, 373);
+            this.RecordingAdvancedLbl.Location = new System.Drawing.Point(957, 71);
             this.RecordingAdvancedLbl.Name = "RecordingAdvancedLbl";
-            this.RecordingAdvancedLbl.Size = new System.Drawing.Size(192, 25);
+            this.RecordingAdvancedLbl.Size = new System.Drawing.Size(104, 25);
             this.RecordingAdvancedLbl.TabIndex = 28;
-            this.RecordingAdvancedLbl.Text = "Advanced Settings";
+            this.RecordingAdvancedLbl.Text = "Allow edit";
             this.RecordingAdvancedLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Preferences
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Controls.Add(this.RecordingAdvancedLbl);
-            this.Controls.Add(this.prefAlwaysOnTop);
             this.Controls.Add(this.prefRecordingAdvanced);
             this.Controls.Add(this.prefRecordingLocationErrorLbl);
             this.Controls.Add(this.prefRecordingLocationBtn);
             this.Controls.Add(this.prefRecordingLocation);
             this.Controls.Add(this.prefRecordingLocationLbl);
-            this.Controls.Add(this.prefAlwaysOnTopLbl);
             this.Controls.Add(this.groupRecordingAdvanced);
             this.Controls.Add(this.prefRecordingDeviceLbl);
             this.Controls.Add(this.btnBack);
@@ -437,8 +368,6 @@
             this.groupRecordingAdvanced.PerformLayout();
             this.prefRecordingAdvanced.ResumeLayout(false);
             this.prefRecordingAdvanced.PerformLayout();
-            this.prefAlwaysOnTop.ResumeLayout(false);
-            this.prefAlwaysOnTop.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,7 +380,6 @@
         private System.Windows.Forms.Label prefRecordingDeviceLbl;
         private System.Windows.Forms.TextBox prefTempLocation;
         private System.Windows.Forms.GroupBox groupRecordingAdvanced;
-        private System.Windows.Forms.Label prefAlwaysOnTopLbl;
         private System.Windows.Forms.Label prefRecordingRateLbl;
         private System.Windows.Forms.Label prefRecordingChannelsLbl;
         private System.Windows.Forms.Label prefRecordingDepthLbl;
@@ -467,9 +395,6 @@
         private System.Windows.Forms.TableLayoutPanel prefRecordingAdvanced;
         private System.Windows.Forms.RadioButton prefRecordingAdvanced_FALSE;
         private System.Windows.Forms.RadioButton prefRecordingAdvanced_TRUE;
-        private System.Windows.Forms.TableLayoutPanel prefAlwaysOnTop;
-        private System.Windows.Forms.RadioButton prefAlwaysOnTop_FALSE;
-        private System.Windows.Forms.RadioButton prefAlwaysOnTop_TRUE;
         private System.Windows.Forms.Label RecordingAdvancedLbl;
         private System.Windows.Forms.ComboBox prefRecordingChannels;
         private System.Windows.Forms.ComboBox prefRecordingDepth;

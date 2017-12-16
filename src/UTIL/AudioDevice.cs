@@ -5,9 +5,9 @@
  * The following code is licensed under the MIT License
  */
 
-using NAudio.Wave;
 using System;
 using System.Diagnostics;
+using NAudio.Wave;
 
 namespace Sermon_Record.UTIL
 {
@@ -35,16 +35,13 @@ namespace Sermon_Record.UTIL
 
             waveIn = new WaveIn
             {
-                WaveFormat = new WaveFormat(AppPreferences.RecordingRate, AppPreferences.RecordingChannels)
-
-                // WaveFormat = new WaveFormat(AppPreferences.RecordingRate,
-                // AppPreferences.RecordingDepth, AppPreferences.RecordingChannels)
+                WaveFormat = AppPreferences.RecordingDepth == 16
+                    ? new WaveFormat(AppPreferences.RecordingRate, AppPreferences.RecordingChannels)
+                    : WaveFormat.CreateIeeeFloatWaveFormat(AppPreferences.RecordingRate,
+                        AppPreferences.RecordingChannels)
             };
 
             waveIn.DataAvailable += updatePeak;
-
-            // TODO DEVICE TODO COMPRESSOR
-
             waveIn.StartRecording();
             IsOpen = true;
             Debug.Print("Audio device opened");
@@ -59,39 +56,36 @@ namespace Sermon_Record.UTIL
         private static readonly EventHandler<WaveInEventArgs> updatePeak = (s, e) =>
         {
             float max = 0;
-            switch (16)
-                // switch (AppPreferences.RecordingDepth)
-                {
-                    case 16:
-                        // interpret as 16 bit audio
-                        for (var index = 0; index < e.BytesRecorded; index += 2)
-                        {
-                            var sample = (short) ((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]);
-                            // to floating point
-                            var sample32 = sample / 32768f;
-                            if (sample32 < 0) sample32 = -sample32;
-                            if (sample32 > max) max = sample32;
-                        }
-                        break;
+            switch (AppPreferences.RecordingDepth)
+            {
+                case 16:
+                    for (var index = 0; index < e.BytesRecorded; index += 2)
+                    {
+                        var sample = (short) ((e.Buffer[index + 1] << 8) | e.Buffer[index + 0]) / 32768f;
+                        if (sample < 0) sample = -sample;
+                        if (sample > max) max = sample;
+                    }
+                    break;
 
-                    case 32:
-                        // interpret as 32 bit floating point audio
-                        var buffer = new WaveBuffer(e.Buffer);
-                        for (var index = 0; index < e.BytesRecorded / 4; index++)
-                        {
-                            var sample = buffer.FloatBuffer[index];
-                            if (sample < 0) sample = -sample;
-                            if (sample > max) max = sample;
-                        }
+                case 32:
 
-                        break;
-                }
+                    var buffer = new WaveBuffer(e.Buffer);
+                    // interpret as 32 bit floating point audio
+                    for (var index = 0; index < e.BytesRecorded / 4; index++)
+                    {
+                        var sample = buffer.FloatBuffer[index];
+                        if (sample < 0) sample = -sample;
+                        if (sample > max) max = sample;
+                    }
+
+                    break;
+            }
             peakValue = max;
         };
 
         public static bool IsOpen { get; private set; }
         public static float peakValue { get; private set; }
-        public static double peakValueDb => Math.Log10(Math.Abs(peakValue)) * 20;
+        public static double peakValueDb => Math.Log10(peakValue) * 20;
 
         #endregion Declarations
     }

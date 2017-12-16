@@ -16,8 +16,6 @@ namespace Sermon_Record.UTIL
     {
         private static readonly RegistryKey _reg = Microsoft.Win32.Registry.CurrentUser.CreateSubKey("SOFTWARE\\featherbear\\Sermon Record");
 
-        public static bool AlwaysOnTop = Convert.ToBoolean(_reg.GetValue("AlwaysOnTop", false));
-
         public static int RecordingChannels = Convert.ToInt32(_reg.GetValue("RecordingChannels", 1));
 
         public static int RecordingDepth = Convert.ToInt32(_reg.GetValue("RecordingDepth", 32));
@@ -42,7 +40,6 @@ namespace Sermon_Record.UTIL
         {
             try
             {
-                _reg.SetValue("AlwaysOnTop", AlwaysOnTop);
                 _reg.SetValue("TempLocation", TempLocation);
                 _reg.SetValue("RecordingRate", RecordingRate);
                 _reg.SetValue("RecordingDepth", RecordingDepth);

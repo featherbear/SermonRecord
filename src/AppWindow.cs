@@ -55,7 +55,6 @@ namespace Sermon_Record
                 MessageBox.Show("The current platform does not support mp3 encoding.\nApplication will close.");
                 Application.Exit();
             }
-            TopMost = AppPreferences.AlwaysOnTop;
         }
     }
 }

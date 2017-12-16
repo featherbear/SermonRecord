@@ -29,7 +29,7 @@ namespace Sermon_Record.UI
             InitializeComponent();
             // Set the "radio button" style
             foreach (var btn in new[]
-                {prefAlwaysOnTop_TRUE, prefAlwaysOnTop_FALSE, prefRecordingAdvanced_TRUE, prefRecordingAdvanced_FALSE})
+                {prefRecordingAdvanced_TRUE, prefRecordingAdvanced_FALSE})
             {
                 btn.FlatAppearance.MouseOverBackColor = Color.FromArgb(140, 197, 255);
                 btn.FlatAppearance.MouseDownBackColor = btn.FlatAppearance.CheckedBackColor =
@@ -47,8 +47,6 @@ namespace Sermon_Record.UI
         {
             if (!prefTempLocationError && !prefRecordingLocationError)
             {
-                AppPreferences.AlwaysOnTop = ((AppWindow) ParentForm).TopMost = (bool) prefAlwaysOnTop.Tag;
-
                 AppPreferences.RecordingLocation = prefRecordingLocation.Text;
                 AppPreferences.TempLocation = prefTempLocation.Text;
 
@@ -111,12 +109,6 @@ namespace Sermon_Record.UI
             return Allow && !Deny;
         }
 
-        private void prefAlwaysOnTop_CheckedChanged(object sender, EventArgs e)
-        {
-            prefAlwaysOnTop.Tag = prefAlwaysOnTop_TRUE.Checked;
-            changeMade();
-        }
-
         private void Preferences_Enter(object sender, EventArgs e)
         {
             /*
@@ -131,9 +123,6 @@ namespace Sermon_Record.UI
             for (var i = 0; i < WaveIn.DeviceCount; i++)
                 prefRecordingDevice.Items.Add(
                     devices.First(dev => dev.StartsWith(WaveIn.GetCapabilities(i).ProductName)));
-
-            if (AppPreferences.AlwaysOnTop) prefAlwaysOnTop_TRUE.Checked = true;
-            else prefAlwaysOnTop_FALSE.Checked = true;
 
             prefRecordingLocation.Text = AppPreferences.RecordingLocation;
             prefTempLocation.Text = AppPreferences.TempLocation;
