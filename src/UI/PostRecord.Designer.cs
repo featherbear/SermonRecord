@@ -60,7 +60,7 @@
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnDiscard
             // 
@@ -72,7 +72,7 @@
             this.btnDiscard.TabIndex = 5;
             this.btnDiscard.Text = "Discard";
             this.btnDiscard.UseVisualStyleBackColor = true;
-            this.btnDiscard.Click += new System.EventHandler(this.btnDiscard_Click);
+            this.btnDiscard.Click += new System.EventHandler(this.BtnDiscard_Click);
             // 
             // lblWaveform
             // 
@@ -101,7 +101,7 @@
             this._series.Name = "_series";
             this._series.Size = new System.Drawing.Size(371, 31);
             this._series.TabIndex = 2;
-            this._series.TextChanged += new System.EventHandler(this.textChanged);
+            this._series.TextChanged += new System.EventHandler(this.TextUpdated);
             // 
             // lblSeries
             // 
@@ -119,7 +119,7 @@
             this._title.Name = "_title";
             this._title.Size = new System.Drawing.Size(371, 31);
             this._title.TabIndex = 1;
-            this._title.TextChanged += new System.EventHandler(this.textChanged);
+            this._title.TextChanged += new System.EventHandler(this.TextUpdated);
             // 
             // lblTitle
             // 
@@ -137,7 +137,7 @@
             this._speaker.Name = "_speaker";
             this._speaker.Size = new System.Drawing.Size(371, 31);
             this._speaker.TabIndex = 4;
-            this._speaker.TextChanged += new System.EventHandler(this.textChanged);
+            this._speaker.TextChanged += new System.EventHandler(this.TextUpdated);
             // 
             // lblSpeaker
             // 
@@ -155,7 +155,7 @@
             this._passage.Name = "_passage";
             this._passage.Size = new System.Drawing.Size(371, 31);
             this._passage.TabIndex = 3;
-            this._passage.TextChanged += new System.EventHandler(this.textChanged);
+            this._passage.TextChanged += new System.EventHandler(this.TextUpdated);
             // 
             // lblPassage
             // 
@@ -193,7 +193,7 @@
             this.saveLocationBtn.TabIndex = 6;
             this.saveLocationBtn.Text = "Change";
             this.saveLocationBtn.UseVisualStyleBackColor = true;
-            this.saveLocationBtn.Click += new System.EventHandler(this.saveLocationBtn_Click);
+            this.saveLocationBtn.Click += new System.EventHandler(this.SaveLocationBtn_Click);
             // 
             // lblSaveLocation
             // 
@@ -236,7 +236,7 @@
             this._service.Name = "_service";
             this._service.Size = new System.Drawing.Size(371, 33);
             this._service.TabIndex = 61;
-            this._service.TextChanged += new System.EventHandler(this.textChanged);
+            this._service.TextChanged += new System.EventHandler(this.TextUpdated);
             // 
             // PostRecord
             // 

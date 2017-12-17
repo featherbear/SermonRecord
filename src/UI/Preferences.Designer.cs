@@ -65,7 +65,7 @@
             this.prefRecordingDevice.Name = "prefRecordingDevice";
             this.prefRecordingDevice.Size = new System.Drawing.Size(396, 33);
             this.prefRecordingDevice.TabIndex = 1;
-            this.prefRecordingDevice.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            this.prefRecordingDevice.SelectedValueChanged += new System.EventHandler(this.ChangeMade);
             // 
             // btnSave
             // 
@@ -78,7 +78,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnBack
             // 
@@ -89,7 +89,7 @@
             this.btnBack.TabIndex = 5;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // prefRecordingDeviceLbl
             // 
@@ -107,7 +107,7 @@
             this.prefTempLocation.Name = "prefTempLocation";
             this.prefTempLocation.Size = new System.Drawing.Size(362, 31);
             this.prefTempLocation.TabIndex = 12;
-            this.prefTempLocation.TextChanged += new System.EventHandler(this.prefTempLocation_TextChanged);
+            this.prefTempLocation.TextChanged += new System.EventHandler(this.PrefTempLocation_TextChanged);
             // 
             // groupRecordingAdvanced
             // 
@@ -149,7 +149,7 @@
             this.prefTempLocationBtn.TabIndex = 22;
             this.prefTempLocationBtn.Text = "...";
             this.prefTempLocationBtn.UseVisualStyleBackColor = true;
-            this.prefTempLocationBtn.Click += new System.EventHandler(this.prefTempLocationBtn_Click);
+            this.prefTempLocationBtn.Click += new System.EventHandler(this.PrefTempLocationBtn_Click);
             // 
             // prefTempLocationLbl
             // 
@@ -202,7 +202,7 @@
             this.prefRecordingChannels.Name = "prefRecordingChannels";
             this.prefRecordingChannels.Size = new System.Drawing.Size(127, 33);
             this.prefRecordingChannels.TabIndex = 29;
-            this.prefRecordingChannels.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            this.prefRecordingChannels.SelectedValueChanged += new System.EventHandler(this.ChangeMade);
             // 
             // prefRecordingDepth
             // 
@@ -216,7 +216,7 @@
             this.prefRecordingDepth.Name = "prefRecordingDepth";
             this.prefRecordingDepth.Size = new System.Drawing.Size(127, 33);
             this.prefRecordingDepth.TabIndex = 30;
-            this.prefRecordingDepth.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            this.prefRecordingDepth.SelectedValueChanged += new System.EventHandler(this.ChangeMade);
             // 
             // prefRecordingRate
             // 
@@ -229,7 +229,7 @@
             this.prefRecordingRate.Name = "prefRecordingRate";
             this.prefRecordingRate.Size = new System.Drawing.Size(127, 33);
             this.prefRecordingRate.TabIndex = 31;
-            this.prefRecordingRate.SelectedValueChanged += new System.EventHandler(this.changeMade);
+            this.prefRecordingRate.SelectedValueChanged += new System.EventHandler(this.ChangeMade);
             // 
             // prefRecordingLocationLbl
             // 
@@ -259,7 +259,7 @@
             this.prefRecordingLocationBtn.TabIndex = 24;
             this.prefRecordingLocationBtn.Text = "...";
             this.prefRecordingLocationBtn.UseVisualStyleBackColor = true;
-            this.prefRecordingLocationBtn.Click += new System.EventHandler(this.prefRecordingLocationBtn_Click);
+            this.prefRecordingLocationBtn.Click += new System.EventHandler(this.PrefRecordingLocationBtn_Click);
             // 
             // prefRecordingLocation
             // 
@@ -267,7 +267,7 @@
             this.prefRecordingLocation.Name = "prefRecordingLocation";
             this.prefRecordingLocation.Size = new System.Drawing.Size(362, 31);
             this.prefRecordingLocation.TabIndex = 23;
-            this.prefRecordingLocation.TextChanged += new System.EventHandler(this.prefRecordingLocation_TextChanged);
+            this.prefRecordingLocation.TextChanged += new System.EventHandler(this.PrefRecordingLocation_TextChanged);
             // 
             // prefRecordingLocationErrorLbl
             // 
@@ -314,7 +314,7 @@
             this.prefRecordingAdvanced_FALSE.Text = "OFF";
             this.prefRecordingAdvanced_FALSE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.prefRecordingAdvanced_FALSE.UseVisualStyleBackColor = true;
-            this.prefRecordingAdvanced_FALSE.CheckedChanged += new System.EventHandler(this.prefRecordingAdvanced_CheckedChanged);
+            this.prefRecordingAdvanced_FALSE.CheckedChanged += new System.EventHandler(this.PrefRecordingAdvanced_CheckedChanged);
             // 
             // prefRecordingAdvanced_TRUE
             // 
@@ -333,7 +333,7 @@
             this.prefRecordingAdvanced_TRUE.Text = "ON";
             this.prefRecordingAdvanced_TRUE.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.prefRecordingAdvanced_TRUE.UseVisualStyleBackColor = true;
-            this.prefRecordingAdvanced_TRUE.CheckedChanged += new System.EventHandler(this.prefRecordingAdvanced_CheckedChanged);
+            this.prefRecordingAdvanced_TRUE.CheckedChanged += new System.EventHandler(this.PrefRecordingAdvanced_CheckedChanged);
             // 
             // RecordingAdvancedLbl
             // 

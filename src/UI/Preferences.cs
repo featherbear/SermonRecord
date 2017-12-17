@@ -21,8 +21,8 @@ namespace Sermon_Record.UI
 {
     public partial class Preferences : UserControl
     {
-        private bool prefRecordingLocationError;
-        private bool prefTempLocationError;
+        private bool _prefRecordingLocationError;
+        private bool _prefTempLocationError;
 
         public Preferences()
         {
@@ -38,14 +38,14 @@ namespace Sermon_Record.UI
             }
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
+        private void BtnBack_Click(object sender, EventArgs e)
         {
-            ((AppWindow) ParentForm).SwitchView();
+            ((AppWindow) ParentForm)?.SwitchView();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (!prefTempLocationError && !prefRecordingLocationError)
+            if (!_prefTempLocationError && !_prefRecordingLocationError)
             {
                 AppPreferences.RecordingLocation = prefRecordingLocation.Text;
                 AppPreferences.TempLocation = prefTempLocation.Text;
@@ -60,12 +60,12 @@ namespace Sermon_Record.UI
             }
         }
 
-        private void changeMade(object sender, EventArgs e)
+        private void ChangeMade(object sender, EventArgs e)
         {
-            changeMade();
+            ChangeMade();
         }
 
-        private void changeMade()
+        private void ChangeMade()
         {
             btnSave.Enabled = true;
         }
@@ -87,26 +87,26 @@ namespace Sermon_Record.UI
         {
             if (!Directory.Exists(path)) return false;
 
-            var Allow = false;
-            var Deny = false;
+            var allow = false;
+            var deny = false;
 
             var acl = Directory.GetAccessControl(path);
             if (acl == null)
                 return false;
             var arc =
                 acl.GetAccessRules(true, true, typeof(SecurityIdentifier));
-            if (arc == null)
-                return false;
+            //if (arc == null)
+            //    return false;
             foreach (FileSystemAccessRule rule in arc)
             {
                 if ((FileSystemRights.Write & rule.FileSystemRights) != FileSystemRights.Write)
                     continue;
                 if (rule.AccessControlType == AccessControlType.Allow)
-                    Allow = true;
+                    allow = true;
                 else if (rule.AccessControlType == AccessControlType.Deny)
-                    Deny = true;
+                    deny = true;
             }
-            return Allow && !Deny;
+            return allow && !deny;
         }
 
         private void Preferences_Enter(object sender, EventArgs e)
@@ -138,36 +138,36 @@ namespace Sermon_Record.UI
             prefRecordingAdvanced_FALSE.Checked = true;
         }
 
-        private void prefRecordingAdvanced_CheckedChanged(object sender, EventArgs e)
+        private void PrefRecordingAdvanced_CheckedChanged(object sender, EventArgs e)
         {
             groupRecordingAdvanced.Enabled = prefRecordingAdvanced_TRUE.Checked;
         }
 
         private void Preferences_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape) btnBack_Click(sender, e);
+            if (e.KeyCode == Keys.Escape) BtnBack_Click(sender, e);
         }
 
-        private void prefRecordingLocation_TextChanged(object sender, EventArgs e)
+        private void PrefRecordingLocation_TextChanged(object sender, EventArgs e)
         {
-            prefRecordingLocationError = prefRecordingLocationErrorLbl.Visible =
+            _prefRecordingLocationError = prefRecordingLocationErrorLbl.Visible =
                 !LocationValidationHelper(prefRecordingLocation.Text);
-            changeMade();
+            ChangeMade();
         }
 
-        private void prefRecordingLocationBtn_Click(object sender, EventArgs e)
+        private void PrefRecordingLocationBtn_Click(object sender, EventArgs e)
         {
             var newPath = DialogHelper(prefRecordingLocationDlg);
             if (newPath != null) prefRecordingLocation.Text = newPath;
         }
 
-        private void prefTempLocation_TextChanged(object sender, EventArgs e)
+        private void PrefTempLocation_TextChanged(object sender, EventArgs e)
         {
-            prefTempLocationError = prefTempLocationErrorLbl.Visible = !LocationValidationHelper(prefTempLocation.Text);
-            changeMade();
+            _prefTempLocationError = prefTempLocationErrorLbl.Visible = !LocationValidationHelper(prefTempLocation.Text);
+            ChangeMade();
         }
 
-        private void prefTempLocationBtn_Click(object sender, EventArgs e)
+        private void PrefTempLocationBtn_Click(object sender, EventArgs e)
         {
             var newPath = DialogHelper(prefTempLocationDlg);
             if (newPath != null) prefTempLocation.Text = newPath;

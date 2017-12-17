@@ -80,12 +80,12 @@ namespace Sermon_Record.UTIL
 
                     break;
             }
-            peakValue = max;
+            PeakValue = max;
         };
 
         public static bool IsOpen { get; private set; }
-        public static float peakValue { get; private set; }
-        public static double peakValueDb => Math.Log10(peakValue) * 20;
+        public static float PeakValue { get; private set; }
+        public static double PeakValueDb => Math.Log10(PeakValue) * 20;
 
         #endregion Declarations
     }

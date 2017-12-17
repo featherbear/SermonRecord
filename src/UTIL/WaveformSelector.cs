@@ -40,52 +40,52 @@ namespace Sermon_Record.UTIL
             };
         }
 
-        public TimeSpan timeStart => TimeSpan.FromMilliseconds((float) handleLeft.Left / imgWaveform.Width *
+        public TimeSpan TimeStart => TimeSpan.FromMilliseconds((float) handleLeft.Left / imgWaveform.Width *
                                                                reader.TotalTime.TotalMilliseconds);
 
-        public TimeSpan timeEnd => TimeSpan.FromMilliseconds(
+        public TimeSpan TimeEnd => TimeSpan.FromMilliseconds(
             (float) (imgWaveform.Width - handleRight.Left + handleRight.Width) / imgWaveform.Width
             * reader.TotalTime.TotalMilliseconds);
 
-        public Image image { get; private set; }
-        public Image imageG { get; private set; }
+        public Image Image { get; private set; }
+        public Image ImageG { get; private set; }
 
-        public void Load(string filePath)
+        public void LoadFile(string filePath)
         {
             renderer = new WaveFormRenderer();
-            image = renderer.Render(filePath, averagePeakProvider, soundCloudOrangeTransparentBlocks);
-            imageG = ToolStripRenderer.CreateDisabledImage(image);
+            Image = renderer.Render(filePath, averagePeakProvider, soundCloudOrangeTransparentBlocks);
+            ImageG = ToolStripRenderer.CreateDisabledImage(Image);
             reader = new WaveFileReader(filePath);
             handleLeft.Left = 0;
             handleRight.Left = imgWaveform.Width - handleRight.Width;
-            originalDuration.Text = endTime.Text = formatTime(reader.TotalTime.TotalMilliseconds);
+            originalDuration.Text = endTime.Text = FormatTime(reader.TotalTime.TotalMilliseconds);
             UpdateImage();
         }
 
         public void UpdateImage()
         {
-            imgWaveform.Image = createDisplayImage();
+            imgWaveform.Image = CreateDisplayImage();
             // Also update the duration time
-            newDuration.Text = formatTime((float) (handleRight.Left + handleRight.Width - handleLeft.Left) /
+            newDuration.Text = FormatTime((float) (handleRight.Left + handleRight.Width - handleLeft.Left) /
                                           imgWaveform.Width * reader.TotalTime.TotalMilliseconds);
         }
 
-        private Image createDisplayImage()
+        private Image CreateDisplayImage()
         {
-            var result = new Bitmap(imageG);
+            var result = new Bitmap(ImageG);
             var selectedRec = new Rectangle(handleLeft.Left, 0, handleRight.Left - handleLeft.Left + handleRight.Width,
-                imageG.Height);
+                ImageG.Height);
 
             using (var g = Graphics.FromImage(result))
             {
                 g.SetClip(selectedRec);
                 g.Clear(Color.Transparent);
-                g.DrawImage(image, selectedRec, selectedRec, GraphicsUnit.Pixel);
+                g.DrawImage(Image, selectedRec, selectedRec, GraphicsUnit.Pixel);
             }
             return result;
         }
 
-        private void handleLeft_MouseMove(object sender, MouseEventArgs e)
+        private void HandleLeft_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -95,12 +95,12 @@ namespace Sermon_Record.UTIL
                 else
                     handleLeft.Left += e.X;
                 startTime.Text =
-                    formatTime((float) handleLeft.Left / imgWaveform.Width * reader.TotalTime.TotalMilliseconds);
+                    FormatTime((float) handleLeft.Left / imgWaveform.Width * reader.TotalTime.TotalMilliseconds);
                 UpdateImage();
             }
         }
 
-        private void handleRight_MouseMove(object sender, MouseEventArgs e)
+        private void HandleRight_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -110,20 +110,20 @@ namespace Sermon_Record.UTIL
                     handleRight.Left = imgWaveform.Width - handleRight.Width;
                 else
                     handleRight.Left += e.X;
-                endTime.Text = formatTime((float) (handleRight.Left + handleRight.Width) / imgWaveform.Width *
+                endTime.Text = FormatTime((float) (handleRight.Left + handleRight.Width) / imgWaveform.Width *
                                           reader.TotalTime.TotalMilliseconds);
                 UpdateImage();
             }
         }
 
-        private string formatTime(TimeSpan ts)
+        private string FormatTime(TimeSpan ts)
         {
             return $"{ts.Hours:#00}:{ts.Minutes:#00}:{ts.Seconds:#00}.{ts.Milliseconds:#000}";
         }
 
-        private string formatTime(double ms)
+        private string FormatTime(double ms)
         {
-            return formatTime(TimeSpan.FromMilliseconds(ms));
+            return FormatTime(TimeSpan.FromMilliseconds(ms));
         }
 
         /*

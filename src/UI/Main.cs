@@ -6,7 +6,6 @@
  */
 
 using System;
-using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Taskbar;
 using Sermon_Record.UTIL;
@@ -22,7 +21,7 @@ namespace Sermon_Record.UI
             InitializeComponent();
         }
 
-        private void recordStartStop_Click(object sender, EventArgs e)
+        private void RecordStartStop_Click(object sender, EventArgs e)
         {
             if (Recorder.IsRecording)
             {
@@ -37,9 +36,9 @@ namespace Sermon_Record.UI
                 fileSize.Visible = false;
                 lblFileSize.Visible = false;
             }
-            else if (ModifierKeys == Keys.Shift)
-            {
-            }
+            //else if (ModifierKeys == Keys.Shift)
+            //{
+            //}
             else if (Recorder.Record())
             {
                 fileSize.Visible = true;
@@ -47,7 +46,7 @@ namespace Sermon_Record.UI
                 fileSizeTimer.Start();
                 elapsedTimeTimer.Start();
                 fileSizeTimer.Start();
-                fileSizeTimer_Tick(null,null);
+                FileSizeTimer_Tick(null, null);
                 btnPreferences.Enabled = false;
 
                 TaskbarManager.Instance.SetProgressState(TaskbarProgressBarState.Normal);
@@ -55,32 +54,30 @@ namespace Sermon_Record.UI
 
                 ((AppWindow) ParentForm).Text += TitlePartRecording;
 
-                btnRecord.Text = "STOP";
+                btnRecord.Text = @"STOP";
             }
         }
 
-        private void btnPreferences_Click(object sender, EventArgs e)
+        private void BtnPreferences_Click(object sender, EventArgs e)
         {
             ((AppWindow) ParentForm).SwitchView();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void elapsedTimeTimer_Tick(object sender, EventArgs e)
+        private void ElapsedTimeTimer_Tick(object sender, EventArgs e)
         {
-            if (Recorder.IsRecording)
-                elapsedTimeLbl.Text = Recorder.GetElapsedTimeFormatted();
-            //writer.TotalTime.t
+            if (Recorder.IsRecording) elapsedTimeLbl.Text = Recorder.GetElapsedTimeFormatted();
         }
 
-        private void soundMeterTTimer_Tick(object sender, EventArgs e)
+        private void SoundMeterTTimer_Tick(object sender, EventArgs e)
         {
             if (AudioDevice.IsOpen)
-                soundMeterT.Text = (AudioDevice.peakValue != 0
-                                       ? Convert.ToInt32(AudioDevice.peakValueDb).ToString()
+                soundMeterT.Text = (AudioDevice.PeakValue > 0
+                                       ? Convert.ToInt32(AudioDevice.PeakValueDb).ToString()
                                        : "-inf") + " dB";
         }
 
@@ -89,12 +86,13 @@ namespace Sermon_Record.UI
             AudioDevice.Open();
         }
 
-        private void soundMeterGTimer_Tick(object sender, EventArgs e)
+        private void SoundMeterGTimer_Tick(object sender, EventArgs e)
 
         {
             if (AudioDevice.IsOpen)
             {
-                var val = Math.Max(0, Math.Min(soundMeterG.Maximum, soundMeterG.Maximum + (int) AudioDevice.peakValueDb));
+                var val = Math.Max(0,
+                    Math.Min(soundMeterG.Maximum, soundMeterG.Maximum + (int) AudioDevice.PeakValueDb));
                 soundMeterG.SetProgressNoAnimation(val);
                 if (val > 60) soundMeterG.SetState(2);
                 else if (val > 50) soundMeterG.SetState(3);
@@ -102,14 +100,9 @@ namespace Sermon_Record.UI
             }
         }
 
-        private void fileSizeTimer_Tick(object sender, EventArgs e)
+        private void FileSizeTimer_Tick(object sender, EventArgs e)
         {
-            if (Recorder.IsRecording) fileSize.Text = Recorder.fileSizeF();
-        }
-
-        private void soundMeterG_Click(object sender, EventArgs e)
-        {
-
+            if (Recorder.IsRecording) fileSize.Text = Recorder.FileSizeF();
         }
     }
 }

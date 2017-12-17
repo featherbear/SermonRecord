@@ -55,7 +55,7 @@ namespace Sermon_Record.UI
             this.btnRecord.TabIndex = 0;
             this.btnRecord.Text = "START";
             this.btnRecord.UseVisualStyleBackColor = true;
-            this.btnRecord.Click += new System.EventHandler(this.recordStartStop_Click);
+            this.btnRecord.Click += new System.EventHandler(this.RecordStartStop_Click);
             // 
             // btnExit
             // 
@@ -68,7 +68,7 @@ namespace Sermon_Record.UI
             this.btnExit.TabStop = false;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // btnPreferences
             // 
@@ -80,7 +80,7 @@ namespace Sermon_Record.UI
             this.btnPreferences.TabStop = false;
             this.btnPreferences.Text = "Preferences";
             this.btnPreferences.UseVisualStyleBackColor = true;
-            this.btnPreferences.Click += new System.EventHandler(this.btnPreferences_Click);
+            this.btnPreferences.Click += new System.EventHandler(this.BtnPreferences_Click);
             // 
             // elapsedTimeLbl
             // 
@@ -96,19 +96,19 @@ namespace Sermon_Record.UI
             // elapsedTimeTimer
             // 
             this.elapsedTimeTimer.Interval = 700;
-            this.elapsedTimeTimer.Tick += new System.EventHandler(this.elapsedTimeTimer_Tick);
+            this.elapsedTimeTimer.Tick += new System.EventHandler(this.ElapsedTimeTimer_Tick);
             // 
             // soundMeterGTimer
             // 
             this.soundMeterGTimer.Enabled = true;
             this.soundMeterGTimer.Interval = 30;
-            this.soundMeterGTimer.Tick += new System.EventHandler(this.soundMeterGTimer_Tick);
+            this.soundMeterGTimer.Tick += new System.EventHandler(this.SoundMeterGTimer_Tick);
             // 
             // soundMeterTTimer
             // 
             this.soundMeterTTimer.Enabled = true;
             this.soundMeterTTimer.Interval = 1000;
-            this.soundMeterTTimer.Tick += new System.EventHandler(this.soundMeterTTimer_Tick);
+            this.soundMeterTTimer.Tick += new System.EventHandler(this.SoundMeterTTimer_Tick);
             // 
             // soundMeterT
             // 
@@ -143,7 +143,7 @@ namespace Sermon_Record.UI
             // fileSizeTimer
             // 
             this.fileSizeTimer.Interval = 1500;
-            this.fileSizeTimer.Tick += new System.EventHandler(this.fileSizeTimer_Tick);
+            this.fileSizeTimer.Tick += new System.EventHandler(this.FileSizeTimer_Tick);
             // 
             // soundMeterG
             // 
@@ -156,7 +156,6 @@ namespace Sermon_Record.UI
             this.soundMeterG.Step = 0;
             this.soundMeterG.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.soundMeterG.TabIndex = 5;
-            this.soundMeterG.Click += new System.EventHandler(this.soundMeterG_Click);
             // 
             // Main
             // 

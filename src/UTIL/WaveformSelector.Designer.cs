@@ -65,7 +65,7 @@
             this.handleLeft.Size = new System.Drawing.Size(10, 251);
             this.handleLeft.TabIndex = 2;
             this.handleLeft.TabStop = false;
-            this.handleLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.handleLeft_MouseMove);
+            this.handleLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HandleLeft_MouseMove);
             // 
             // handleRight
             // 
@@ -77,7 +77,7 @@
             this.handleRight.Size = new System.Drawing.Size(10, 251);
             this.handleRight.TabIndex = 3;
             this.handleRight.TabStop = false;
-            this.handleRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.handleRight_MouseMove);
+            this.handleRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HandleRight_MouseMove);
             // 
             // lblStartTime
             // 
