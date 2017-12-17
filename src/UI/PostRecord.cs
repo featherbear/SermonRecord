@@ -31,8 +31,22 @@ namespace Sermon_Record.UI
         public void UpdatePath()
         {
             if (!usingCustomPath)
+            {
+                var service = _service.Text.Trim();
+                service = service.Length > 0 ? " - " + service : "";
+                var series = _series.Text.Trim();
+                series = series.Length > 0 ? " - " + series : "";
+
+                var title = _title.Text.Trim();
+                title = title.Length > 0 ? " - " + title: "";
+
+                var speaker = _speaker.Text.Trim();
+                speaker = speaker.Length > 0 ? " - " + speaker : "";
+
+
                 saveLocation.Text = Path.Combine(AppPreferences.RecordingLocation,
-                    $"{Recorder.StartTime.Year:#0000}{Recorder.StartTime.Month:#00}{Recorder.StartTime.Day:#00} - 'CHURCH PLANT' - {_series.Text} - {_title.Text} - {_speaker.Text}.mp3");
+                    $"{Recorder.StartTime.Year:#0000}{Recorder.StartTime.Month:#00}{Recorder.StartTime.Day:#00}{service}{series}{title}{speaker}.mp3");
+            }
         }
 
         private void btnDiscard_Click(object sender, EventArgs e)
@@ -44,17 +58,6 @@ namespace Sermon_Record.UI
             TaskbarManager.Instance.SetProgressValue(0, 1);
         }
 
-        private void PostRecord_Load(object sender, EventArgs e)
-        {
-            /*
-             Time slider
-
-            Default everything
-            Click-drag inside: Moves selection
-            Clicking on a point outside the area: No effect
-            Dragging handle: Change min/max point
-             */
-        }
 
         private void saveLocationBtn_Click(object sender, EventArgs e)
         {
