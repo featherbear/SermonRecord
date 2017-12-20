@@ -100,6 +100,7 @@
             this.ClientSize = new System.Drawing.Size(1322, 547);
             this.ControlBox = false;
             this.Controls.Add(this.viewSelector);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AppWindow";
             this.Text = "Sermon Record";
