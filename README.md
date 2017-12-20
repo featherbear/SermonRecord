@@ -8,13 +8,10 @@ Church software utility for Windows to record sermons.
 
 
 ### Attribution
- * [Python](https://www.python.org/) `version 3.6.0 #41df79263a11`
- * [Qt](https://www.qt.io/) `version 5.8.0`
- * [PyWin32](https://sourceforge.net/projects/pywin32/) `build 221`
- * [PyQt](https://riverbankcomputing.com/software/pyqt/) `version 5.8.1`
- * [libVLC](http://www.videolan.org/vlc/libvlc.html) `version 2.2.5.1`
- * [vlc.py](https://wiki.videolan.org/Python_bindings/) `build Mon Mar 20 11:04:27 2017`
-
+ * [Windows API Code Pack - Core](https://www.nuget.org/packages/WindowsAPICodePack-Core/) `version 1.1.2`
+ * [Windows API Code Pack - Shell](https://www.nuget.org/packages/WindowsAPICodePack-Shell/) `version 1.1.1`
+ * [NAudio](https://github.com/naudio/NAudio) `version 1.8.4`
+ * [NAudio.Lame](https://github.com/Corey-M/NAudio.Lame) `version 1.0.7`
 
 
 ## License
