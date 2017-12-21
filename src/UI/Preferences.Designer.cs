@@ -59,6 +59,7 @@
             // 
             // prefRecordingDevice
             // 
+            this.prefRecordingDevice.BackColor = System.Drawing.Color.White;
             this.prefRecordingDevice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.prefRecordingDevice.FormattingEnabled = true;
             this.prefRecordingDevice.Location = new System.Drawing.Point(244, 154);
@@ -103,6 +104,7 @@
             // 
             // prefTempLocation
             // 
+            this.prefTempLocation.BackColor = System.Drawing.Color.White;
             this.prefTempLocation.Location = new System.Drawing.Point(173, 261);
             this.prefTempLocation.Name = "prefTempLocation";
             this.prefTempLocation.Size = new System.Drawing.Size(362, 31);
@@ -193,6 +195,7 @@
             // 
             // prefRecordingChannels
             // 
+            this.prefRecordingChannels.BackColor = System.Drawing.Color.White;
             this.prefRecordingChannels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.prefRecordingChannels.FormattingEnabled = true;
             this.prefRecordingChannels.Items.AddRange(new object[] {
@@ -206,6 +209,7 @@
             // 
             // prefRecordingDepth
             // 
+            this.prefRecordingDepth.BackColor = System.Drawing.Color.White;
             this.prefRecordingDepth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.prefRecordingDepth.FormattingEnabled = true;
             this.prefRecordingDepth.Items.AddRange(new object[] {
@@ -220,6 +224,7 @@
             // 
             // prefRecordingRate
             // 
+            this.prefRecordingRate.BackColor = System.Drawing.Color.White;
             this.prefRecordingRate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.prefRecordingRate.FormattingEnabled = true;
             this.prefRecordingRate.Items.AddRange(new object[] {
@@ -263,6 +268,7 @@
             // 
             // prefRecordingLocation
             // 
+            this.prefRecordingLocation.BackColor = System.Drawing.Color.White;
             this.prefRecordingLocation.Location = new System.Drawing.Point(244, 226);
             this.prefRecordingLocation.Name = "prefRecordingLocation";
             this.prefRecordingLocation.Size = new System.Drawing.Size(362, 31);
@@ -348,6 +354,7 @@
             // Preferences
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.RecordingAdvancedLbl);
             this.Controls.Add(this.prefRecordingAdvanced);
             this.Controls.Add(this.prefRecordingLocationErrorLbl);

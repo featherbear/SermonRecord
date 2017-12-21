@@ -86,7 +86,7 @@ namespace Sermon_Record.UI
             // 
             this.elapsedTimeLbl.AutoSize = true;
             this.elapsedTimeLbl.Font = new System.Drawing.Font("Consolas", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.elapsedTimeLbl.Location = new System.Drawing.Point(342, 92);
+            this.elapsedTimeLbl.Location = new System.Drawing.Point(342, 117);
             this.elapsedTimeLbl.Name = "elapsedTimeLbl";
             this.elapsedTimeLbl.Size = new System.Drawing.Size(623, 150);
             this.elapsedTimeLbl.TabIndex = 4;
@@ -122,7 +122,7 @@ namespace Sermon_Record.UI
             // lblFileSize
             // 
             this.lblFileSize.AutoSize = true;
-            this.lblFileSize.Location = new System.Drawing.Point(548, 253);
+            this.lblFileSize.Location = new System.Drawing.Point(548, 267);
             this.lblFileSize.Name = "lblFileSize";
             this.lblFileSize.Size = new System.Drawing.Size(107, 25);
             this.lblFileSize.TabIndex = 19;
@@ -133,7 +133,7 @@ namespace Sermon_Record.UI
             // fileSize
             // 
             this.fileSize.AutoSize = true;
-            this.fileSize.Location = new System.Drawing.Point(646, 253);
+            this.fileSize.Location = new System.Drawing.Point(646, 267);
             this.fileSize.Name = "fileSize";
             this.fileSize.Size = new System.Drawing.Size(0, 25);
             this.fileSize.TabIndex = 20;
@@ -160,6 +160,7 @@ namespace Sermon_Record.UI
             // Main
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.fileSize);
             this.Controls.Add(this.soundMeterT);
             this.Controls.Add(this.soundMeterG);

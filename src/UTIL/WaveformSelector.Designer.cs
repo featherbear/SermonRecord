@@ -47,11 +47,11 @@
             // 
             // imgWaveform
             // 
-            this.imgWaveform.BackColor = System.Drawing.Color.LightGray;
+            this.imgWaveform.Dock = System.Windows.Forms.DockStyle.Top;
             this.imgWaveform.Location = new System.Drawing.Point(0, 0);
             this.imgWaveform.Margin = new System.Windows.Forms.Padding(0);
             this.imgWaveform.Name = "imgWaveform";
-            this.imgWaveform.Size = new System.Drawing.Size(1356, 251);
+            this.imgWaveform.Size = new System.Drawing.Size(1332, 250);
             this.imgWaveform.TabIndex = 0;
             this.imgWaveform.TabStop = false;
             // 
@@ -62,7 +62,7 @@
             this.handleLeft.Location = new System.Drawing.Point(184, 0);
             this.handleLeft.Margin = new System.Windows.Forms.Padding(0);
             this.handleLeft.Name = "handleLeft";
-            this.handleLeft.Size = new System.Drawing.Size(10, 251);
+            this.handleLeft.Size = new System.Drawing.Size(10, 250);
             this.handleLeft.TabIndex = 2;
             this.handleLeft.TabStop = false;
             this.handleLeft.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HandleLeft_MouseMove);
@@ -74,7 +74,7 @@
             this.handleRight.Location = new System.Drawing.Point(1255, 0);
             this.handleRight.Margin = new System.Windows.Forms.Padding(0);
             this.handleRight.Name = "handleRight";
-            this.handleRight.Size = new System.Drawing.Size(10, 251);
+            this.handleRight.Size = new System.Drawing.Size(10, 250);
             this.handleRight.TabIndex = 3;
             this.handleRight.TabStop = false;
             this.handleRight.MouseMove += new System.Windows.Forms.MouseEventHandler(this.HandleRight_MouseMove);
@@ -82,7 +82,7 @@
             // lblStartTime
             // 
             this.lblStartTime.AutoSize = true;
-            this.lblStartTime.Location = new System.Drawing.Point(1040, 269);
+            this.lblStartTime.Location = new System.Drawing.Point(1026, 266);
             this.lblStartTime.Name = "lblStartTime";
             this.lblStartTime.Size = new System.Drawing.Size(110, 25);
             this.lblStartTime.TabIndex = 6;
@@ -92,7 +92,7 @@
             // lblEndTime
             // 
             this.lblEndTime.AutoSize = true;
-            this.lblEndTime.Location = new System.Drawing.Point(1217, 269);
+            this.lblEndTime.Location = new System.Drawing.Point(1203, 266);
             this.lblEndTime.Name = "lblEndTime";
             this.lblEndTime.Size = new System.Drawing.Size(103, 25);
             this.lblEndTime.TabIndex = 7;
@@ -101,7 +101,8 @@
             // 
             // startTime
             // 
-            this.startTime.Location = new System.Drawing.Point(1021, 307);
+            this.startTime.BackColor = System.Drawing.Color.White;
+            this.startTime.Location = new System.Drawing.Point(1007, 304);
             this.startTime.Name = "startTime";
             this.startTime.ReadOnly = true;
             this.startTime.Size = new System.Drawing.Size(149, 31);
@@ -112,7 +113,8 @@
             // 
             // endTime
             // 
-            this.endTime.Location = new System.Drawing.Point(1194, 307);
+            this.endTime.BackColor = System.Drawing.Color.White;
+            this.endTime.Location = new System.Drawing.Point(1180, 304);
             this.endTime.Name = "endTime";
             this.endTime.ReadOnly = true;
             this.endTime.Size = new System.Drawing.Size(149, 31);
@@ -123,7 +125,8 @@
             // 
             // originalDuration
             // 
-            this.originalDuration.Location = new System.Drawing.Point(189, 266);
+            this.originalDuration.BackColor = System.Drawing.Color.White;
+            this.originalDuration.Location = new System.Drawing.Point(175, 263);
             this.originalDuration.Name = "originalDuration";
             this.originalDuration.ReadOnly = true;
             this.originalDuration.Size = new System.Drawing.Size(145, 31);
@@ -135,7 +138,7 @@
             // lblOriginalDuration
             // 
             this.lblOriginalDuration.AutoSize = true;
-            this.lblOriginalDuration.Location = new System.Drawing.Point(10, 269);
+            this.lblOriginalDuration.Location = new System.Drawing.Point(-4, 266);
             this.lblOriginalDuration.Name = "lblOriginalDuration";
             this.lblOriginalDuration.Size = new System.Drawing.Size(173, 25);
             this.lblOriginalDuration.TabIndex = 10;
@@ -144,7 +147,8 @@
             // 
             // newDuration
             // 
-            this.newDuration.Location = new System.Drawing.Point(189, 307);
+            this.newDuration.BackColor = System.Drawing.Color.White;
+            this.newDuration.Location = new System.Drawing.Point(175, 304);
             this.newDuration.Name = "newDuration";
             this.newDuration.ReadOnly = true;
             this.newDuration.Size = new System.Drawing.Size(145, 31);
@@ -156,7 +160,7 @@
             // lblNewDuration
             // 
             this.lblNewDuration.AutoSize = true;
-            this.lblNewDuration.Location = new System.Drawing.Point(42, 310);
+            this.lblNewDuration.Location = new System.Drawing.Point(28, 307);
             this.lblNewDuration.Name = "lblNewDuration";
             this.lblNewDuration.Size = new System.Drawing.Size(141, 25);
             this.lblNewDuration.TabIndex = 12;
@@ -179,6 +183,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.helptip);
             this.Controls.Add(this.newDuration);
             this.Controls.Add(this.lblNewDuration);
@@ -192,7 +197,7 @@
             this.Controls.Add(this.handleLeft);
             this.Controls.Add(this.imgWaveform);
             this.Name = "WaveformSelector";
-            this.Size = new System.Drawing.Size(1356, 360);
+            this.Size = new System.Drawing.Size(1332, 338);
             ((System.ComponentModel.ISupportInitialize)(this.imgWaveform)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.handleLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.handleRight)).EndInit();

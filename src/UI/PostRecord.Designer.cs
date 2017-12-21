@@ -53,7 +53,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(1165, 752);
+            this.btnSave.Location = new System.Drawing.Point(1141, 728);
             this.btnSave.Margin = new System.Windows.Forms.Padding(0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(200, 100);
@@ -65,7 +65,7 @@
             // btnDiscard
             // 
             this.btnDiscard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDiscard.Location = new System.Drawing.Point(1165, 9);
+            this.btnDiscard.Location = new System.Drawing.Point(1141, 9);
             this.btnDiscard.Margin = new System.Windows.Forms.Padding(0);
             this.btnDiscard.Name = "btnDiscard";
             this.btnDiscard.Size = new System.Drawing.Size(200, 100);
@@ -79,7 +79,7 @@
             this.lblWaveform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblWaveform.AutoSize = true;
             this.lblWaveform.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
-            this.lblWaveform.Location = new System.Drawing.Point(4, 311);
+            this.lblWaveform.Location = new System.Drawing.Point(3, 296);
             this.lblWaveform.Name = "lblWaveform";
             this.lblWaveform.Size = new System.Drawing.Size(213, 31);
             this.lblWaveform.TabIndex = 27;
@@ -89,7 +89,7 @@
             // 
             this.lblSermonDetails.AutoSize = true;
             this.lblSermonDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSermonDetails.Location = new System.Drawing.Point(4, 9);
+            this.lblSermonDetails.Location = new System.Drawing.Point(3, 1);
             this.lblSermonDetails.Name = "lblSermonDetails";
             this.lblSermonDetails.Size = new System.Drawing.Size(213, 31);
             this.lblSermonDetails.TabIndex = 28;
@@ -97,7 +97,8 @@
             // 
             // _series
             // 
-            this._series.Location = new System.Drawing.Point(137, 159);
+            this._series.BackColor = System.Drawing.Color.White;
+            this._series.Location = new System.Drawing.Point(137, 151);
             this._series.Name = "_series";
             this._series.Size = new System.Drawing.Size(371, 31);
             this._series.TabIndex = 2;
@@ -106,7 +107,7 @@
             // lblSeries
             // 
             this.lblSeries.AutoSize = true;
-            this.lblSeries.Location = new System.Drawing.Point(48, 160);
+            this.lblSeries.Location = new System.Drawing.Point(48, 152);
             this.lblSeries.Name = "lblSeries";
             this.lblSeries.Size = new System.Drawing.Size(73, 25);
             this.lblSeries.TabIndex = 35;
@@ -115,7 +116,8 @@
             // 
             // _title
             // 
-            this._title.Location = new System.Drawing.Point(137, 109);
+            this._title.BackColor = System.Drawing.Color.White;
+            this._title.Location = new System.Drawing.Point(137, 101);
             this._title.Name = "_title";
             this._title.Size = new System.Drawing.Size(371, 31);
             this._title.TabIndex = 1;
@@ -124,7 +126,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(68, 109);
+            this.lblTitle.Location = new System.Drawing.Point(68, 101);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(53, 25);
             this.lblTitle.TabIndex = 37;
@@ -133,7 +135,8 @@
             // 
             // _speaker
             // 
-            this._speaker.Location = new System.Drawing.Point(137, 261);
+            this._speaker.BackColor = System.Drawing.Color.White;
+            this._speaker.Location = new System.Drawing.Point(137, 253);
             this._speaker.Name = "_speaker";
             this._speaker.Size = new System.Drawing.Size(371, 31);
             this._speaker.TabIndex = 4;
@@ -142,7 +145,7 @@
             // lblSpeaker
             // 
             this.lblSpeaker.AutoSize = true;
-            this.lblSpeaker.Location = new System.Drawing.Point(29, 264);
+            this.lblSpeaker.Location = new System.Drawing.Point(29, 256);
             this.lblSpeaker.Name = "lblSpeaker";
             this.lblSpeaker.Size = new System.Drawing.Size(92, 25);
             this.lblSpeaker.TabIndex = 39;
@@ -151,7 +154,8 @@
             // 
             // _passage
             // 
-            this._passage.Location = new System.Drawing.Point(137, 210);
+            this._passage.BackColor = System.Drawing.Color.White;
+            this._passage.Location = new System.Drawing.Point(137, 202);
             this._passage.Name = "_passage";
             this._passage.Size = new System.Drawing.Size(371, 31);
             this._passage.TabIndex = 3;
@@ -160,7 +164,7 @@
             // lblPassage
             // 
             this.lblPassage.AutoSize = true;
-            this.lblPassage.Location = new System.Drawing.Point(25, 212);
+            this.lblPassage.Location = new System.Drawing.Point(25, 204);
             this.lblPassage.Name = "lblPassage";
             this.lblPassage.Size = new System.Drawing.Size(96, 25);
             this.lblPassage.TabIndex = 41;
@@ -175,10 +179,11 @@
             // saveLocation
             // 
             this.saveLocation.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.saveLocation.Location = new System.Drawing.Point(12, 752);
+            this.saveLocation.BackColor = System.Drawing.Color.White;
+            this.saveLocation.Location = new System.Drawing.Point(9, 728);
             this.saveLocation.Name = "saveLocation";
             this.saveLocation.ReadOnly = true;
-            this.saveLocation.Size = new System.Drawing.Size(1141, 31);
+            this.saveLocation.Size = new System.Drawing.Size(1120, 31);
             this.saveLocation.TabIndex = 5;
             this.saveLocation.TabStop = false;
             // 
@@ -186,7 +191,7 @@
             // 
             this.saveLocationBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.saveLocationBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.875F);
-            this.saveLocationBtn.Location = new System.Drawing.Point(12, 799);
+            this.saveLocationBtn.Location = new System.Drawing.Point(9, 775);
             this.saveLocationBtn.Margin = new System.Windows.Forms.Padding(0);
             this.saveLocationBtn.Name = "saveLocationBtn";
             this.saveLocationBtn.Size = new System.Drawing.Size(111, 53);
@@ -200,7 +205,7 @@
             this.lblSaveLocation.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.lblSaveLocation.AutoSize = true;
             this.lblSaveLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.125F, System.Drawing.FontStyle.Bold);
-            this.lblSaveLocation.Location = new System.Drawing.Point(4, 709);
+            this.lblSaveLocation.Location = new System.Drawing.Point(3, 694);
             this.lblSaveLocation.Name = "lblSaveLocation";
             this.lblSaveLocation.Size = new System.Drawing.Size(199, 31);
             this.lblSaveLocation.TabIndex = 46;
@@ -209,15 +214,17 @@
             // waveform
             // 
             this.waveform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.waveform.Location = new System.Drawing.Point(9, 356);
+            this.waveform.BackColor = System.Drawing.Color.White;
+            this.waveform.Location = new System.Drawing.Point(9, 341);
+            this.waveform.Margin = new System.Windows.Forms.Padding(0);
             this.waveform.Name = "waveform";
-            this.waveform.Size = new System.Drawing.Size(1356, 338);
+            this.waveform.Size = new System.Drawing.Size(1332, 338);
             this.waveform.TabIndex = 52;
             // 
             // lblService
             // 
             this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(39, 58);
+            this.lblService.Location = new System.Drawing.Point(39, 50);
             this.lblService.Name = "lblService";
             this.lblService.Size = new System.Drawing.Size(84, 25);
             this.lblService.TabIndex = 60;
@@ -226,13 +233,14 @@
             // 
             // _service
             // 
+            this._service.BackColor = System.Drawing.Color.White;
             this._service.FormattingEnabled = true;
             this._service.Items.AddRange(new object[] {
             "9AM Mandarin",
             "11AM English",
             "4PM English",
             "4PM Bankstown"});
-            this._service.Location = new System.Drawing.Point(137, 58);
+            this._service.Location = new System.Drawing.Point(137, 50);
             this._service.Name = "_service";
             this._service.Size = new System.Drawing.Size(371, 33);
             this._service.TabIndex = 61;
@@ -242,7 +250,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1374, 861);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1346, 833);
             this.ControlBox = false;
             this.Controls.Add(this._service);
             this.Controls.Add(this.lblService);

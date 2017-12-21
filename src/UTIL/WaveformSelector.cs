@@ -34,7 +34,7 @@ namespace Sermon_Record.UTIL
                 Width = imgWaveform.Width,
                 BottomHeight = Convert.ToInt32(0.2 * imgWaveform.Height),
                 SpacerPixels = 1,
-                TopHeight = Convert.ToInt32(0.7 * imgWaveform.Height),
+                TopHeight = Convert.ToInt32(0.8 * imgWaveform.Height),
                 TopSpacerGradientStartColor = topSpacerColor,
                 BackgroundColor = Color.Transparent
             };
@@ -68,6 +68,7 @@ namespace Sermon_Record.UTIL
             // Also update the duration time
             newDuration.Text = FormatTime((float) (handleRight.Left + handleRight.Width - handleLeft.Left) /
                                           imgWaveform.Width * reader.TotalTime.TotalMilliseconds);
+            Update();
         }
 
         private Image CreateDisplayImage()
