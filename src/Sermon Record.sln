@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33417.168
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sermon Record", "Sermon Record.csproj", "{E18EADD2-04D9-4EC1-84B2-5AFDF03CB485}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NAudio.WaveFormRenderer", "..\lib\NAudio.WaveFormRenderer\NAudio.WaveFormRenderer.csproj", "{3EFEF2D1-5D08-46FD-AF6D-098DBE7FB3B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioRecorderApp", "..\AudioRecorderApp\AudioRecorderApp.csproj", "{58714C37-6CBD-45A8-A417-E8DECB760016}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,18 @@ Global
 		{3EFEF2D1-5D08-46FD-AF6D-098DBE7FB3B4}.Release|x64.Build.0 = Release|Any CPU
 		{3EFEF2D1-5D08-46FD-AF6D-098DBE7FB3B4}.Release|x86.ActiveCfg = Release|Any CPU
 		{3EFEF2D1-5D08-46FD-AF6D-098DBE7FB3B4}.Release|x86.Build.0 = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|x64.Build.0 = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Debug|x86.Build.0 = Debug|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|x64.ActiveCfg = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|x64.Build.0 = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|x86.ActiveCfg = Release|Any CPU
+		{58714C37-6CBD-45A8-A417-E8DECB760016}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
